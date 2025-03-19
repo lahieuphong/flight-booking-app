@@ -28,7 +28,7 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 - Bảng điều khiển dành cho quản trị viên.
 
 ### Phạm Vi Kỹ Thuật
-- **Giao diện người dùng:** HTML, CSS, JavaScript (React.js hoặc Vue.js).
+- **Giao diện người dùng:** HTML, CSS, JavaScript (React.js).
 - **Backend:** PHP với MySQL (tích hợp qua XAMPP).
 - **Tích hợp API:** Cổng thanh toán, API theo dõi chuyến bay.
 - **Triển khai:** GitHub với CI/CD.
@@ -49,10 +49,10 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 ## Công Nghệ Dự Kiến
 | Thành phần   | Công nghệ |
 |-------------|-----------|
-| **Frontend** | React.js / Vue.js |
-| **Backend**  | PHP, MySQL (XAMPP) |
-| **API**      | REST APIs cho đặt vé & thanh toán |
-| **Triển khai** | GitHub, GitHub Pages |
+| **Backend** | Node.js, Express.js, MySQL |
+| **Frontend**  | React.js, HTML, CSS, JavaScript |
+| **API**      | RESTful API, Express.js |
+| **Triển khai** | GitHub |
 
 ## Phương Pháp Phát Triển
 - **Mô hình phát triển:** Agile Scrum với các sprint 2 tuần.
