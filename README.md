@@ -140,13 +140,11 @@ Dự án "Hệ thống đặt vé chuyến bay" nhằm tối ưu hóa quy trình
 ### 5. Công Cụ Hỗ Trợ
 | Mục đích | Công cụ |
 |-----------|---------|
-| **Quản lý mã nguồn** | GitHub (repository riêng cho backend, frontend, tài liệu) |
-| **Quản lý công việc** | Trello, Notion |
-| **Lập trình Backend** | PHP, MySQL, XAMPP |
-| **Lập trình Frontend** | React.js hoặc Vue.js |
-| **Thiết kế giao diện** | Figma |
+| **Quản lý mã nguồn** | GitHub |
+| **Lập trình Backend** | Node.js, Express.js, MySQL |
+| **Lập trình Frontend** | React.js, HTML, CSS, JavaScript |
 | **Kiểm thử API** | Postman |
-| **Triển khai** | GitHub Pages, XAMPP (Local Server) |
+| **Triển khai** | GitHub, XAMPP (Local Server) |
 
 ### 6. Kết Luận
 Bản kế hoạch này cung cấp hướng dẫn ban đầu cho quá trình thực hiện dự án. Trong quá trình triển khai, kế hoạch có thể thay đổi để phù hợp với thực tế và khắc phục các vấn đề phát sinh. Nhóm sẽ liên tục đánh giá, cập nhật và điều chỉnh để đảm bảo dự án hoàn thành thành công.
