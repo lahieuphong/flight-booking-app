@@ -2,26 +2,26 @@
 
 ## ProjectProposal
 
-### Giới Thiệu
+### 1. Giới Thiệu
 Hệ thống đặt vé chuyến bay được thiết kế để tối ưu hóa quy trình đặt vé cho hãng hàng không và khách hàng. 
 Dự án nhằm cải thiện trải nghiệm người dùng, tự động hóa quy trình nghiệp vụ và quản lý vé máy bay một cách hiệu quả.
 
-### Đặt Vấn Đề
+### 2. Đặt Vấn Đề
 Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều hạn chế như:
 - Khách hàng phải đến trực tiếp phòng vé để đặt vé.
 - Khó khăn trong việc theo dõi và thay đổi thông tin đặt vé.
 - Quản lý vé thủ công gây mất thời gian và dễ xảy ra sai sót.
 - Thiếu tính năng theo dõi trạng thái chuyến bay theo thời gian thực.
 
-### Mục Tiêu
+### 3. Mục Tiêu
 - Phát triển hệ thống đặt vé máy bay trên nền tảng web.
 - Cung cấp giao diện thân thiện cho người dùng tìm kiếm và đặt vé.
 - Tự động hóa quy trình quản lý vé.
 - Theo dõi tình trạng chuyến bay theo thời gian thực.
 - Đảm bảo giao dịch thanh toán an toàn.
 
-### Phạm Vi Dự Án
-#### Phạm Vi Chức Năng
+### 4. Phạm Vi Dự Án
+#### 4.1 Phạm Vi Chức Năng
 - Đăng ký & Đăng nhập người dùng.
 - Tìm kiếm và lọc chuyến bay.
 - Lựa chọn ghế ngồi.
@@ -29,13 +29,13 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 - Theo dõi trạng thái chuyến bay.
 - Bảng điều khiển dành cho quản trị viên.
 
-#### Phạm Vi Kỹ Thuật
+#### 4.2 Phạm Vi Kỹ Thuật
 - **Giao diện người dùng:** HTML, CSS, JavaScript (React.js).
 - **Backend:** PHP với MySQL (tích hợp qua XAMPP).
 - **Tích hợp API:** Cổng thanh toán, API theo dõi chuyến bay.
 - **Triển khai:** GitHub với CI/CD.
 
-### Phương Pháp Thực Hiện
+### 5. Phương Pháp Thực Hiện
 1. **Thu thập yêu cầu:** Khảo sát nhu cầu người dùng, nghiên cứu quy trình đặt vé hiện tại.
 2. **Phân tích hệ thống:** Xây dựng sơ đồ quy trình nghiệp vụ (BPMN) và mô hình dữ liệu.
 3. **Thiết kế giao diện:** Xây dựng wireframe và prototype.
@@ -43,12 +43,12 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 5. **Kiểm thử:** Thực hiện kiểm thử đơn vị, kiểm thử hệ thống và kiểm thử người dùng.
 6. **Triển khai:** Đưa hệ thống vào hoạt động thử nghiệm và đánh giá.
 
-### Dữ Liệu
+### 6. Dữ Liệu
 - **Dữ liệu chuyến bay:** Danh sách chuyến bay, sân bay, lịch trình.
 - **Dữ liệu người dùng:** Tài khoản, thông tin đặt vé.
 - **Dữ liệu giao dịch:** Lịch sử đặt vé, thanh toán.
 
-### Công Nghệ Dự Kiến
+### 7. Công Nghệ Dự Kiến
 | Thành phần   | Công nghệ |
 |-------------|-----------|
 | **Backend** | Node.js, Express.js, MySQL |
@@ -56,18 +56,18 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 | **API**      | RESTful API, Express.js |
 | **Triển khai** | GitHub |
 
-### Phương Pháp Phát Triển
+### 8. Phương Pháp Phát Triển
 - **Mô hình phát triển:** Agile Scrum với các sprint 2 tuần.
 - **Quản lý mã nguồn:** GitHub với nhánh riêng cho từng tính năng.
 - **Quản lý tiến độ:** Dùng Trello hoặc Jira để theo dõi nhiệm vụ.
 
-### Kết Quả Mong Đợi
+### 9. Kết Quả Mong Đợi
 - Hệ thống đặt vé máy bay trực tuyến hoạt động ổn định.
 - Giao diện thân thiện giúp người dùng dễ dàng đặt vé.
 - Tích hợp thanh toán trực tuyến an toàn và nhanh chóng.
 - Cải thiện quản lý chuyến bay cho hãng hàng không.
 
-### Kế Hoạch Thực Hiện
+### 10. Kế Hoạch Thực Hiện
 | Giai đoạn   | Công việc                     | Thời gian |
 |------------|------------------------------|-----------|
 | **Giai đoạn 1** | Khảo sát & phân tích yêu cầu | 2 tuần |
@@ -76,14 +76,14 @@ Hiện nay, việc đặt vé chuyến bay truyền thống còn gặp nhiều h
 | **Giai đoạn 4** | Phát triển Frontend        | 4 tuần |
 | **Giai đoạn 5** | Kiểm thử & Triển khai      | 3 tuần |
 
-### Nguồn Lực & Ngân Sách
+### 11. Nguồn Lực & Ngân Sách
 - **Nhân lực:** 3 thành viên (1 lập trình backend, 1 lập trình frontend, 1 kiểm thử & triển khai).
 - **Chi phí dự kiến:**
   - **Máy chủ & Domain:** Khoảng 50-100$ (có thể sử dụng hosting miễn phí như GitHub Pages hoặc Firebase để tiết kiệm chi phí).
   - **Công cụ phát triển:** Miễn phí (GitHub, XAMPP, VS Code, Figma cho thiết kế UI/UX).
   - **API & Thanh toán:** Sử dụng các dịch vụ miễn phí hoặc bản thử nghiệm trước khi tích hợp bản trả phí.
 
-### Kết Luận
+### 12. Kết Luận
 Hệ thống đặt vé chuyến bay là một giải pháp cần thiết để hiện đại hóa quy trình đặt vé, mang lại trải nghiệm tốt hơn cho khách hàng và giúp hãng hàng không quản lý chuyến bay hiệu quả. Với công nghệ hiện đại, phương pháp phát triển linh hoạt, dự án này hứa hẹn mang lại nhiều giá trị thực tiễn và tối ưu hóa hoạt động đặt vé.
 
 # Quản Lý Đặt Vé Chuyến Bay - Kế Hoạch Dự Án
