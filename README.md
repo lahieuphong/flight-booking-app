@@ -96,9 +96,9 @@ Dự án "Hệ thống đặt vé chuyến bay" nhằm tối ưu hóa quy trình
 ### 2. Phân Công Nhiệm Vụ
 | Thành viên | Vai trò | Nhiệm vụ |
 |------------|---------|----------|
-| **La Hiểu Phong** | Leader | Quản lý dự án, theo dõi tiến độ, điều phối công việc và đảm bảo chất lượng sản phẩm. |
-| **Nguyễn Long Vũ** | Lập trình Backend | Phát triển hệ thống server, thiết kế và quản lý cơ sở dữ liệu, xây dựng API, đảm bảo bảo mật và hiệu suất hệ thống. |
-| **Nguyễn Công Huy** | Lập trình Frontend & Kiểm thử | Thiết kế giao diện người dùng, kết nối API, đảm bảo trải nghiệm mượt mà và thực hiện kiểm thử hệ thống. |
+| **La Hiểu Phong** | Leader, Lập trình Backend & Frontend| Quản lý dự án, theo dõi tiến độ, điều phối công việc và đảm bảo chất lượng sản phẩm. |
+| **Nguyễn Long Vũ** | Phát triển Backend & Cài đặt hệ thống| Phát triển hệ thống server, thiết kế và quản lý cơ sở dữ liệu, xây dựng API, đảm bảo bảo mật và hiệu suất hệ thống. |
+| **Nguyễn Công Huy** | Phát triển Frontend & Kiểm thử hệ thống | Thiết kế giao diện người dùng, kết nối API, đảm bảo trải nghiệm mượt mà và thực hiện kiểm thử hệ thống. |
 
 ### 3. Kế Hoạch Làm Việc
 #### Giai đoạn 1: Phân Tích Yêu Cầu & Khảo Sát (1 tuần)
