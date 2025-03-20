@@ -1,6 +1,6 @@
 # Quản Lý Đặt Vé Chuyến Bay
 
-## ProjectProposal
+## Project Proposal
 
 ### 1. Giới Thiệu
 Hệ thống đặt vé chuyến bay được thiết kế để tối ưu hóa quy trình đặt vé cho hãng hàng không và khách hàng. 
@@ -88,7 +88,7 @@ Hệ thống đặt vé chuyến bay là một giải pháp cần thiết để 
 
 # Quản Lý Đặt Vé Chuyến Bay - Kế Hoạch Dự Án
 
-## ProjectPlan
+## Project Plan
 
 ### 1. Giới Thiệu
 Dự án "Hệ thống đặt vé chuyến bay" nhằm tối ưu hóa quy trình đặt vé, giúp người dùng dễ dàng tìm kiếm, đặt chỗ và thanh toán vé máy bay trực tuyến. Hệ thống cung cấp các chức năng quan trọng như đặt vé, theo dõi trạng thái chuyến bay và quản lý thông tin khách hàng.
