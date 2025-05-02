@@ -1,0 +1,131 @@
+/* Đặt font và background tổng thể */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #007bff;
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.navbar a:hover {
+  background-color: #0056b3;
+}
+
+/* ======================= Footer ======================= */
+.footer {
+  background-color: #f9fafb;
+  padding: 40px;
+  font-size: 14px;
+  color: #333;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Chia footer thành các cột đều nhau */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ Chia thành 3 cột đều nhau */
+  gap: 20px;
+}
+
+/* Khung từng cột trong footer */
+.footer-info, .footer-contact, .footer-social {
+  padding: 20px;
+}
+
+/* Định dạng tiêu đề */
+.footer-info strong,
+.footer-contact strong,
+.footer-social strong {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Căn giữa phần social */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Định dạng cho logo trong footer */
+.footer-logos {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.footer-logos img {
+  width: 120px;
+  height: 50px;
+}
+
+.footer-logos img:hover {
+  transform: scale(1.1);
+}
+
+/* Định dạng nội dung trong footer */
+.footer-contact p,
+.footer-info p,
+.footer-social p {
+  margin: 8px 0;
+  text-align: left;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* ✅ Làm tròn */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1e90ff;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(1, 1fr); /* ✅ Xếp cột dọc khi màn hình nhỏ */
+  }
+}

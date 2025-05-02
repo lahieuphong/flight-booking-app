@@ -1,0 +1,178 @@
+/* HERO BACKGROUND */
+.home-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Nền hình ảnh trắng */
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Overlay màu đen nhạt */
+  z-index: 1;
+}
+
+/* CONTENT WRAPPER - Với viền chuyển động mượt */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards, lightEffect 3s infinite alternate;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* VIỀN CHUYỂN ĐỘNG - Đổi màu cam thành màu xanh dương */
+.content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(270deg, #007BFF, #66B3FF, #007BFF); /* Màu xanh dương */
+  background-size: 600% 600%;
+  animation: borderLoop 6s linear infinite;
+  border-radius: 15px;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 3px;
+}
+
+/* TEXT OVERLAY */
+.overlay {
+  text-align: center;
+  color: #ffffff; /* Màu chữ trắng cho toàn bộ nội dung */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bóng chữ nhẹ hơn */
+  animation: textMovement 4s ease-in-out infinite;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+  color: #ffffff; /* Màu chữ trắng cho tiêu đề */
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* Bóng chữ tối nhẹ */
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards, textMovement 4s ease-in-out infinite;
+}
+
+.overlay p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  font-weight: 900;
+  color: #ffffff; /* Màu chữ trắng cho đoạn văn */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* Bóng chữ tối nhẹ */
+  opacity: 0;
+  animation: fadeInUp 1.5s forwards, textMovement 4s ease-in-out infinite;
+}
+
+/* HOME BUTTON - Đổi màu cam thành màu xanh dương */
+.home-button {
+  padding: 14px 28px;
+  font-size: 16px;
+  background-color: #007BFF; /* Màu nền xanh dương */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  opacity: 0;
+  animation: fadeInUp 1.8s forwards, lightEffect 6s infinite alternate;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.home-button:hover {
+  background-color: white;
+  color: #007BFF; /* Màu chữ và viền khi hover */
+  border-color: #007BFF; /* Màu viền xanh dương khi hover */
+}
+
+/* FADE IN UP */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TEXT MOVEMENT LEFT - RIGHT */
+@keyframes textMovement {
+  0% {
+    transform: translateX(-5px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 1.2;
+  }
+  100% {
+    transform: translateX(-5px);
+    opacity: 1;
+  }
+}
+
+/* LIGHT GLOW EFFECT */
+@keyframes lightEffect {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Màu xanh dương sáng */
+  }
+  25% {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.7); /* Màu xanh dương sáng */
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(0, 123, 255, 0.8); /* Màu xanh dương sáng */
+  }
+  75% {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.7); /* Màu xanh dương sáng */
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Màu xanh dương sáng */
+  }
+}
+
+/* BORDER LOOP - Mượt */
+@keyframes borderLoop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .overlay h1 {
+    font-size: 2rem;
+  }
+  .overlay p {
+    font-size: 1rem;
+  }
+  .home-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

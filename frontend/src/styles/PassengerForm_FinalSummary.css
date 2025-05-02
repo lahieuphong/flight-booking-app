@@ -1,0 +1,119 @@
+.final-summary-container {
+  background-color: #ffffff; /* nền trắng */
+  border: 1px dashed #dfe3e8; /* nét đứt nhẹ, màu xám sáng */
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Header */
+.summary-header {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.trip-type {
+  font-weight: bold;
+  color: #1e4ca1;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.airport-code-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.airport-code {
+  background-color: #fff;
+  border: 1px solid #ffcc00;
+  color: #ff9900;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.flight-arrow-icon {
+  height: 12px;
+  width: auto;
+}
+
+/* Flight Segments */
+.segment-section {
+  margin-top: 20px;
+}
+
+.return-segment {
+  border-top: 1px solid #ccc;
+  padding-top: 16px;
+  margin-top: 24px;
+}
+
+.segment-title {
+  color: #1e4ca1;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.airport-names {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Price Details */
+.price-section-title {
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+/* Mặc định cho tất cả các span trong dòng giá tiền */
+.price-row .total-price,
+.price-row .baggage-fee,
+.price-row .discount,
+.price-row .final-price {
+  font-weight: bold;
+  color: #777;
+}
+
+
+/* Riêng phần giảm giá giữ màu đỏ */
+.price-row .discount {
+  color: #f44336 !important;
+}
+
+.price-row .final-price {
+  color: #ff9f00 !important;
+}
+
+.price-section-label {
+  color: #ff9f00;;
+  font-style: italic;
+}
+
+/* Final Total */
+.total-summary {
+  background-color: #f9a825;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.total-price-section-label {
+  color: #fff;
+}

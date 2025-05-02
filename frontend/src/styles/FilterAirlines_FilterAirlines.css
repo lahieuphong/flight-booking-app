@@ -1,0 +1,79 @@
+/* Thiết lập kiểu cho bảng */
+.filter-table {
+    width: 100%; 
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+}
+
+/* Kiểu dành cho tiêu đề bảng */
+.filter-table th {
+    background-color: #007BFF; 
+    color: white; 
+    padding: 12px 15px;
+    text-align: center; 
+    border-radius: 8px 8px 0 0; 
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Kiểu dành cho ô dữ liệu trong bảng */
+.filter-table td {
+    padding: 12px 15px;
+    text-align: left; 
+    font-size: 0.85rem; 
+    color: #666; 
+    font-weight: bold; 
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+/* Kiểu dành cho ô checkbox */
+.filter-table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0px;
+    transform: scale(0.8); /* Thu nhỏ kích thước checkbox */
+}
+
+/* ✅ Hiệu ứng khi checkbox được chọn -> Thay đổi kiểu hover */
+.filter-table tr.selected td {
+    font-weight: 600; 
+    background-color: #e9f5ff; 
+    color: #007BFF;
+}
+
+/* ✅ Hover chỉ khi checkbox được chọn */
+.filter-table tr.selected:hover td {
+    background-color: #f0f8ff;
+    transform: scale(1.05);
+}
+
+/* Kiểu cho checkbox đã chọn */
+.filter-table input[type="checkbox"]:checked {
+    background-color: #007BFF; 
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Kiểu cho checkbox hàng "Hiển thị tất cả" khi được chọn */
+.filter-table tr:first-child td input[type="checkbox"]:checked {
+    background-color: #28a745; 
+    border-color: #28a745;
+}
+
+/* Tạo khoảng cách cho hàng cuối cùng của bảng */
+.filter-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Kiểu cho checkbox trong từng hàng hãng hàng không */
+.filter-table td input[type="checkbox"]:checked + span {
+    color: #007BFF;
+}
+
+/* Kiểu cho checkbox không được chọn */
+.filter-table td input[type="checkbox"]:not(:checked) + span {
+    color: #555;
+}

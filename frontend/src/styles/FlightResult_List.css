@@ -1,0 +1,348 @@
+/* ✅ Container chính chứa bộ lọc và danh sách chuyến bay */
+.flight-result-list-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ✅ Div chứa các filter-section chiếm 1/3 */
+.filter-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* ✅ Bộ lọc từng phần */
+.filter-section {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Tiêu đề cho phần bộ lọc */
+.filter-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ✅ Căn chỉnh checkbox và nhãn */
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* ✅ Thanh trượt giá vé */
+input[type="range"] {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.price-range {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* ✅ Container chứa bộ lọc và danh sách chuyến bay */
+.filter-flight {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+  gap: 20px; /* Khoảng cách giữa các phần tử */
+  padding: 20px; /* Padding xung quanh container */
+  background-color: #fff; /* Màu nền trắng */
+  border-radius: 16px; /* Bo góc container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow nhẹ cho container */
+}
+
+/* ✅ Div chứa danh sách chuyến bay chiếm 2/3 */
+.flight-list-container {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.flight-list {
+  display:flex;
+}
+
+
+/* ✅ Logo hãng bay */
+.airline-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+/* ✅ Mỗi chuyến bay được hiển thị dưới dạng item */
+.flight-item {
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+/* ✅ Thông tin chuyến bay */
+/* ✅ Flight Info Container */
+.flight-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  gap: 4px;
+}
+
+/* ✅ Flight Details */
+.flight-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.airline-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.flight-details span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ✅ Flight Details - Canh giữa hoàn toàn */
+.flight-details {
+  display: flex;
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  gap: 8px;
+  width: 100%; 
+}
+
+
+/* ✅ Flight Time */
+.flight-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.departure-time,
+.arrival-time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.duration {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+}
+
+/* ✅ Flight Route */
+.flight-route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ✅ Mũi tên giữa hành trình */
+.flight-route::before {
+  content: '→';
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* ✅ Hover effect */
+/* .flight-info:hover {
+  background-color: #fafafa;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+} */
+
+
+.flight-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* Đẩy về bên phải */
+}
+
+
+
+
+
+
+
+
+
+/* ✅ Kiểu cho wrapper chứa select (Chọn loại ghế) */
+.seat-type-wrapper {
+  font-size: 14px; /* Kích thước chữ cho tiêu đề */
+  font-weight: bold; /* Chữ đậm cho tiêu đề */
+  color: #333; /* Màu chữ */
+  margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+  display: flex; /* Để align các phần tử con */
+  flex-direction: column; /* Căn chỉnh các phần tử con theo chiều dọc */
+  gap: 8px; /* Khoảng cách giữa tiêu đề và select */
+}
+
+/* ✅ Kiểu cho thẻ select */
+.custom-seat-select {
+  width: 200px; /* Chiều rộng cố định cho select */
+  padding: 8px 12px; /* Khoảng cách bên trong select */
+  font-size: 14px; /* Kích thước chữ */
+  font-weight: bold; /* Chữ in đậm */
+  color: #666666; /* Màu chữ */
+  background-color: #fff; /* Màu nền trắng */
+  border: 1px solid #ddd; /* Viền mờ */
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow nhẹ cho select */
+  cursor: pointer; /* Con trỏ chuột là pointer khi hover vào select */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển động nhẹ khi hover */
+}
+
+/* ✅ Khi hover vào select */
+.custom-seat-select:hover {
+  border-color: #ff9800; /* Màu viền khi hover */
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.4); /* Thêm hiệu ứng bóng sáng khi hover */
+}
+
+/* ✅ Khi select được focus */
+.custom-seat-select:focus {
+  border-color: #ff9800; /* Màu viền khi focus */
+  outline: none; /* Tắt outline mặc định */
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.6); /* Thêm bóng sáng khi focus */
+}
+
+/* ✅ Kiểu cho option trong select */
+.custom-seat-select option {
+  padding: 8px 12px; /* Khoảng cách trong từng option */
+  font-size: 14px; /* Kích thước chữ trong option */
+  font-weight: bold; /* Chữ in đậm trong option */
+  color: #333; /* Màu chữ của option */
+  background-color: #fff; /* Màu nền của option */
+  border: none; /* Không có viền cho option */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Hiệu ứng chuyển nền và di chuyển nhẹ */
+}
+
+/* ✅ Khi hover vào option */
+.custom-seat-select option:hover {
+  background-color: #e0e0e0; /* Nền sáng lên nhiều hơn khi hover vào option */
+  transform: scale(1.07); /* Tăng kích thước mạnh hơn khi hover vào option */
+}
+
+
+/* ✅ Khung được chọn */
+.flight-item.selected {
+  border: 2px solid #ff9800; /* Màu viền mới */
+  box-shadow: 0 0 12px rgba(255, 152, 0, 0.3); /* Màu bóng đổ mới */
+  border-radius: 12px;
+  background-color: #fff3e0; /* Nền nhẹ mới, tone cam nhạt */
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+.price {
+  font-size: 16px;
+  color: #ff9800;
+  font-weight: bold;
+  align-items: center;
+  white-space: nowrap; /* Ngăn chữ bị xuống dòng */
+}
+
+/* ✅ Nút chọn chuyến bay */
+.choose-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap; /* Ngăn chữ bị xuống dòng */
+}
+
+.choose-btn:hover {
+  background-color: #f57c00;
+}
+
+.choose-btn:active {
+  background-color: #e65100;
+}
+
+/* ✅ Hiệu ứng khi click */
+button:active {
+  transform: scale(0.98);
+}
+
+
+
+
+.flight-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flight-details-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.flight-details-table td:first-child {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

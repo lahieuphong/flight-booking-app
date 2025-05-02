@@ -1,0 +1,212 @@
+/* ✅ Container chính cho FlightResult_Info */
+.flight-result-info-container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column; /* Đảm bảo các item vẫn được căn theo chiều dọc */
+}
+
+/* ✅ Flight info item container (Họp các item thông tin lại với nhau) */
+.flight-info {
+    display: flex; /* Các phần tử trong flight-info sẽ nằm ngang */
+    flex-wrap: wrap; /* Các phần tử sẽ xuống dòng khi không đủ chỗ */
+    gap: 10px; /* Khoảng cách giữa các item */
+    justify-content: center; /* Căn giữa các phần tử */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+
+/* ✅ Mỗi item thông tin chuyến bay */
+.flight-info-item {
+    font-size: 16px;
+    color: #333;
+    padding: 10px 20px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 0 1 auto;
+    min-width: 120px;
+    box-sizing: border-box;
+}
+
+/* ✅ Tổng số vé - Đồng bộ cùng hàng với các item khác */
+.summary-box {
+    display: inline-block; /* Đảm bảo summary-box xuống dòng */
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 16px;
+    cursor: pointer;
+    width: auto;
+}
+
+.summary-box:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ Mũi tên mở/đóng chi tiết */
+.arrow-icon {
+    margin-left: 10px;
+    display: inline-block;
+    transition: transform 0.7s ease;
+}
+
+/* 👇 Khi trạng thái mở, xoay icon 180 độ */
+.arrow-icon.open {
+    transform: rotate(180deg);
+}
+
+/* ✅ Khung hiển thị chi tiết số lượng vé */
+.passenger-box {
+    width: 90%;
+    max-width: 320px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Các dòng hiển thị thông tin hành khách */
+.passenger-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+/* ✅ Tiêu đề của thông tin hành khách */
+.passenger-label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ✅ Nút tăng/giảm số lượng */
+.passenger-controls button {
+    background-color: #ffc107;
+    color: black;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.passenger-controls button:hover {
+    background-color: #e0a800;
+}
+
+.passenger-controls button:disabled {
+    background-color: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ✅ Số lượng hành khách */
+.passenger-count {
+    padding: 0 12px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 30px;
+    text-align: center;
+}
+
+/* ✅ Nút chọn chuyến bay */
+.select-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 12px;
+}
+
+.select-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+.select-btn:active {
+    transform: scale(0.98);
+}
+
+.select-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* ✅ Hiệu ứng khi click */
+button:active {
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+
+/* ✅ Thông tin loại chuyến bay */
+.flight-type h2 {
+    font-size: 20px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  
+  .flight-type h3 {
+    font-size: 15px;
+    color: #475569;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* h4 - Chọn chiều chuyến bay */
+.flight-choice {
+    display: inline-block; /* Helps the content shrink to fit the text */
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+    margin: 0 auto 5px;
+    transition: transform 0.3s ease, color 0.3s ease; /* Add a transition for text */
+}
+
+.flight-choice::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #2563eb;
+    margin: 6px auto 0;
+    border-radius: 2px;
+    width: 0; /* Start with no underline */
+    transition: width 0.3s ease-in-out; /* Animate the underline */
+}
+
+/* Hover effect for both the text and the underline */
+.flight-choice:hover {
+    color: #1d4ed8; /* Change text color */
+    transform: scale(1.3); /* Slightly scale up the text */
+}
+
+/* On hover, expand the underline */
+.flight-choice:hover::after {
+    width: 60%; /* Make the underline appear when hovering */
+}
+
+
