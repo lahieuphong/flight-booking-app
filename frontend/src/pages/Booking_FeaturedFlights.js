@@ -1,21 +1,47 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../styles/Booking_FeaturedFlights.css';
 
 const Booking_FeaturedFlights = () => {
   const listRef = useRef(null);
 
+  const scrollAmount = 1000;  // Số pixel cuộn mỗi lần
+
+  // Hàm cuộn tự động và khi nhấn nút
   const scroll = (direction) => {
     if (listRef.current) {
-      const scrollAmount = listRef.current.offsetWidth;
-      listRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
+      const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
+
+      if (direction === 'left') {
+        listRef.current.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth',
+        });
+      } else if (direction === 'right') {
+        listRef.current.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth',
+        });
+      }
+
+      // Nếu đã cuộn hết, quay lại từ đầu
+      if (scrollLeft + clientWidth >= scrollWidth) {
+        listRef.current.scrollLeft = 0;
+      }
     }
   };
 
+  // Cuộn tự động sau mỗi khoảng thời gian
+  useEffect(() => {
+    const interval = setInterval(() => {
+      scroll('right'); // Cuộn tự động sang phải mỗi 2 giây
+    }, 2000);
+
+    // Dọn dẹp interval khi component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="featured-flights">
+    <div className="booking-featured-flights">
       <h3>Chuyến bay nổi bật</h3>
       <div className="flight-list" ref={listRef}>
         {/* Card 1 */}
@@ -37,7 +63,7 @@ const Booking_FeaturedFlights = () => {
           className="flight-card"
         >
           <img src="/images/flight2.jpg" alt="Flight 2" />
-          <p>BAY CÙNG NỬA YÊU THƯƠNG – Ưu đãi 50% Phí Hành Lý Cùng Bamboo Airways</p>
+          <p>BAY CÙNG NỮA YÊU THƯƠNG – Ưu đãi 50% Phí Hành Lý Cùng Bamboo Airways</p>
         </a>
 
         {/* Card 3 */}
@@ -80,18 +106,11 @@ const Booking_FeaturedFlights = () => {
           rel="noopener noreferrer"
           className="flight-card"
         >
-          <img src="/images/flight6.jpg" alt="Flight 5" />
+          <img src="/images/flight6.jpg" alt="Flight 6" />
           <p>Săn vé Việt Nam - Bắc Kinh giá tốt cùng Vietnam Airlines</p>
         </a>
       </div>
-
-      {/* Nút chuyển slide */}
-      <button className="carousel-button prev" onClick={() => scroll('left')}>
-        &#10094;
-      </button>
-      <button className="carousel-button next" onClick={() => scroll('right')}>
-        &#10095;
-      </button>
+      
     </div>
   );
 };

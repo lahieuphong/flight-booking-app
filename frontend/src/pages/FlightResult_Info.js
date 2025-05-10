@@ -411,12 +411,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import '../styles/FlightResult_Info.css';
-import '../styles/FlightResult_List.css';
+// import '../styles/FlightResult_List.css';
 import FlightResult_List from './FlightResult_List';
+
 import FilterAirlines from './FilterAirlines';
 import FilterAircraft from './FilterAircraft';
-import '../styles/FilterAirlines_FilterAirlines.css';
 import FilterPrice from './FilterPrice';
+import '../styles/FilterComponents.css';
+
 import { useNavigate } from 'react-router-dom';
 
 const FlightResult_Info = ({
@@ -514,53 +516,55 @@ const FlightResult_Info = ({
 
   return (
     <>
-      <div className="flight-result-info-container">
-        {/* Thông tin chuyến bay */}
-        <div className="flight-info-group">
-          <span className="flight-info-item">
-            <strong>Điểm đi:</strong> {departure_airport} ({departure_airport_code})
-          </span>
-          <span className="flight-info-item">
-            <strong>Điểm đến:</strong> {arrival_airport} ({arrival_airport_code})
-          </span>
-          <span className="flight-info-item">
-            <strong>Ngày đi:</strong> {formatDate(departureDate)}
-          </span>
-          {tripType === 'round-trip' && (
+      <div className="flight-summary-container">
+        <div className="flight-info-container">
+          {/* Thông tin chuyến bay */}
+          <div className="flight-info-group">
             <span className="flight-info-item">
-              <strong>Ngày về:</strong> {formatDate(returnDate)}
+              <strong>Điểm đi:</strong> {departure_airport} ({departure_airport_code})
             </span>
-          )}
-          <span className="flight-info-item">
-            <strong>Loại vé:</strong> {tripType === 'one-way' ? 'Một chiều' : 'Khứ hồi'}
-          </span>
-        </div>
-
-        {/* Toggle mở/đóng chi tiết vé */}
-        <span
-          className={`flight-info-item summary-box ${showDetails ? 'active' : ''}`}
-          role="button"
-          tabIndex={0}
-          onClick={toggleDetails}
-          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleDetails()}
-        >
-          <strong>Tổng số vé:</strong> {adults} Người lớn, {childCount} Trẻ em, {infants} Em bé
-          <span className={`arrow-icon ${showDetails ? 'open' : ''}`}>
-            {showDetails ? '▲' : '▼'}
-          </span>
-        </span>
-
-        {/* Hiển thị số lượng hành khách */}
-        {showDetails && (
-          <div className="passenger-box">
-            <PassengerRow label="Người lớn" count={adults} setCount={setAdults} min={1} />
-            <PassengerRow label="Trẻ em" count={childCount} setCount={setChildCount} min={0} />
-            <PassengerRow label="Em bé" count={infants} setCount={setInfants} min={0} />
+            <span className="flight-info-item">
+              <strong>Điểm đến:</strong> {arrival_airport} ({arrival_airport_code})
+            </span>
+            <span className="flight-info-item">
+              <strong>Ngày đi:</strong> {formatDate(departureDate)}
+            </span>
+            {tripType === 'round-trip' && (
+              <span className="flight-info-item">
+                <strong>Ngày về:</strong> {formatDate(returnDate)}
+              </span>
+            )}
+            <span className="flight-info-item">
+              <strong>Loại vé:</strong> {tripType === 'one-way' ? 'Một chiều' : 'Khứ hồi'}
+            </span>
           </div>
-        )}
-      </div>
+          
+          {/* Toggle mở/đóng chi tiết vé */}
+          <span
+            className={`flight-info-item summary-box ${showDetails ? 'active' : ''}`}
+            role="button"
+            tabIndex={0}
+            onClick={toggleDetails}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleDetails()}
+          >
+            <strong>Tổng số vé</strong> : {adults} Người lớn, {childCount} Trẻ em, {infants} Em bé
+            <span className={`arrow-icon ${showDetails ? 'open' : ''}`}>
+              {showDetails ? '▲' : '▼'}
+            </span>
+          </span>
+
+          {/* Hiển thị số lượng hành khách */}
+          {showDetails && (
+            <div className={`passenger-box ${showDetails ? 'show' : ''}`}>
+              <PassengerRow label="Người lớn" count={adults} setCount={setAdults} min={1} />
+              <PassengerRow label="Trẻ em" count={childCount} setCount={setChildCount} min={0} />
+              <PassengerRow label="Em bé" count={infants} setCount={setInfants} min={0} />
+            </div>
+          )}
+        </div>
+      </div> 
       
-      <div className="flight-result-list-container">
+      <div className="flight-summary-container">
         <div className="filter-wrapper">
           {/* Bộ lọc Hãng hàng không */}
           <FilterAirlines onFilterChange={setSelectedAirlines} />

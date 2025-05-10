@@ -1,111 +1,155 @@
-/* Đặt font và background tổng thể */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+/* ---------------------------- General Styles ---------------------------- */
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%; /* Đảm bảo body và html chiếm toàn bộ chiều rộng màn hình */
+  box-sizing: border-box; /* Áp dụng box-sizing border-box cho toàn bộ trang */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
 }
 
-.App {
-  text-align: center;
-  padding: 20px;
+/* Toàn bộ văn bản trong body */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Navbar */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ---------------------------- Navbar ---------------------------- */
 .navbar {
+  width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+  background-color: rgba(0, 123, 255, 0.9); /* Nền với độ trong suốt */
+  padding: 10px 0;
   display: flex;
   justify-content: center;
-  background-color: #007bff;
-  padding: 10px;
+  align-items: center;
+  position: sticky; /* Navbar cố định khi cuộn trang */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow nhẹ */
+  margin: 0; /* Đảm bảo không có margin */
+  transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Navbar khi cuộn trang */
+.navbar.scrolled {
+  background-color: rgba(0, 123, 255, 0.7); /* Màu nền khi cuộn */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box-shadow đậm hơn */
+  opacity: 0.9;
+}
+
+/* Link trong navbar */
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
 }
 
+/* Hiệu ứng hover */
 .navbar a:hover {
-  background-color: #0056b3;
+  background-color: rgba(0, 123, 255, 0.8);
+  color: #fff;
 }
 
-/* ======================= Footer ======================= */
+/* ---------------------------- Footer ---------------------------- */
 .footer {
+  width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
   background-color: #f9fafb;
-  padding: 40px;
-  font-size: 14px;
+  padding: 20px 0; /* Giảm padding để giảm chiều cao của footer */
+  font-size: 12px; /* Giảm font size cho nội dung */
   color: #333;
   border-top: 1px solid #e5e7eb;
+  margin: 0; /* Đảm bảo không có margin */
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* Chia footer thành các cột đều nhau */
+/* Chia footer thành 3 cột đều nhau */
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ✅ Chia thành 3 cột đều nhau */
+  grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
   gap: 20px;
+  padding: 0 20px; /* Padding để tránh dính vào cạnh */
+  box-sizing: border-box;
 }
 
-/* Khung từng cột trong footer */
+/* Các cột trong footer */
 .footer-info, .footer-contact, .footer-social {
-  padding: 20px;
+  padding: 10px; /* Giảm padding trong các cột */
+  box-sizing: border-box;
 }
 
-/* Định dạng tiêu đề */
+/* Tiêu đề trong các cột */
 .footer-info strong,
 .footer-contact strong,
 .footer-social strong {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px; /* Giảm kích thước tiêu đề */
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* Căn giữa phần social */
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Nội dung trong footer */
+.footer-contact p,
+.footer-info p {
+  margin: 10px 0; /* Giảm margin cho các đoạn văn */
+  text-align: left;
 }
 
-/* Định dạng cho logo trong footer */
+.footer-social p {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* ---------------------------- Footer Logos ---------------------------- */
 .footer-logos {
   display: flex;
-  gap: 10px;
+  justify-content: center; /* Căn giữa các logo trong container */
+  gap: 20px; /* Khoảng cách giữa các logo */
   margin-top: 10px;
 }
 
 .footer-logos img {
-  width: 120px;
-  height: 50px;
+  width: 100px; /* Chiều rộng logo (có thể thay đổi tùy theo nhu cầu) */
+  height: auto; /* Đảm bảo tỉ lệ khung hình không bị thay đổi */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng khi hover */
+  object-fit: contain; /* Giữ nguyên tỷ lệ của logo */
+  max-height: 50px; /* Chiều cao tối đa của logo */
+  border-radius: 8px; /* Thêm border-radius nhẹ cho logo */
 }
 
 .footer-logos img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Phóng to logo khi hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng shadow khi hover */
 }
 
-/* Định dạng nội dung trong footer */
-.footer-contact p,
-.footer-info p,
-.footer-social p {
-  margin: 8px 0;
-  text-align: left;
+.footer-logos img:focus {
+  outline: none; /* Xóa viền khi logo được focus */
 }
 
-/* Social icons */
+
+/* Chỉnh sửa social icons */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 12px; /* Giảm khoảng cách giữa các icon */
+  margin-top: 8px; /* Giảm khoảng cách trên social icons */
 }
 
 .social-icons a img {
-  width: 40px;
-  height: 40px;
+  width: 35px; /* Giảm kích thước icon */
+  height: 35px; /* Giảm chiều cao icon */
   object-fit: cover;
-  border-radius: 50%; /* ✅ Làm tròn */
+  border-radius: 50%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .social-icons a img:hover {
@@ -115,17 +159,10 @@ body {
 
 .social-icons a {
   color: #333;
-  font-size: 20px;
+  font-size: 18px; /* Giảm kích thước font của các icon */
   transition: color 0.3s;
 }
 
 .social-icons a:hover {
   color: #1e90ff;
-}
-
-/* Responsive cho màn hình nhỏ */
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: repeat(1, 1fr); /* ✅ Xếp cột dọc khi màn hình nhỏ */
-  }
 }

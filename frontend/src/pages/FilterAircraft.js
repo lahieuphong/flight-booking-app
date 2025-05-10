@@ -46,34 +46,37 @@ function FilterAircraft({ onFilterChange }) {
   };
 
   return (
-    <div className="filter-section">
-      <h3 className="filter-title">Loại máy bay</h3>
-      <table className="filter-table">
-        <thead>
-          <tr>
-            <th>Hiển thị</th>
-            <th>Loại máy bay</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* ✅ Danh sách loại máy bay */}
-          {aircrafts.map((aircraft) => (
-            <tr key={aircraft.id}
-                className={aircraft.is_checked ? 'selected' : ''}
-            > 
-              <td>
-                <input
-                  type="checkbox"
-                  checked={aircraft.is_checked}
-                  onChange={() => handleCheckboxChange(aircraft.id)}
-                />
-              </td>
-              <td>{aircraft.type_name}</td>
+    <div className="filter-wrapper">
+      <div className="filter-section">
+        <h3 className="filter-title">Loại máy bay</h3>
+        <table className="filter-table">
+          <thead>
+            <tr>
+              <th>Hiển thị</th>
+              <th>Loại máy bay</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {/* ✅ Danh sách loại máy bay */}
+            {aircrafts.map((aircraft) => (
+              <tr key={aircraft.id}
+                  className={aircraft.is_checked ? 'selected' : ''}
+              > 
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={aircraft.is_checked}
+                    onChange={() => handleCheckboxChange(aircraft.id)}
+                  />
+                </td>
+                <td>{aircraft.type_name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+    
   );
 }
 

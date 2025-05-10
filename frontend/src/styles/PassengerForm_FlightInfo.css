@@ -1,0 +1,157 @@
+/* 📦 Container chính cho mỗi khối chuyến bay */
+.flight-block {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .flight-block.no-shadow {
+    box-shadow: none !important;
+  }
+  
+  /* 🧾 Tiêu đề và tuyến bay */
+  .flight-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .flight-header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .airport-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .airport-name {
+    color: #007bff;
+  }
+  
+  /* 🧩 Chi tiết chuyến bay theo cột */
+  /* .flight-details {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: center;
+  } */
+  
+  .column-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .airline-logo {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .column-info,
+  .column-time,
+  .column-arrival,
+  .column-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .column-info p,
+  .column-time p,
+  .column-arrival p {
+    font-size: 15px;
+    margin: 4px 0;
+    color: #333;
+  }
+  
+  /* 🕓 Hiển thị giờ bay */
+  .highlight-time {
+    color: #ff9f00;
+  }
+  
+  /* 📅 Hiển thị ngày bay */
+  .gray-date {
+    color: #666;
+    margin-left: 0;
+  }
+  
+  .label-text {
+    color: #333;
+  }
+  
+  /* 🔘 Nút điều kiện vé */
+  .condition-button {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    text-decoration: underline;
+    font-size: 16px;
+    padding: 6px 0;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .condition-button:hover {
+    color: #0b59d8;
+  }
+  
+  /* 🧾 Modal điều kiện vé */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+  
+  /* Nội dung trong modal */
+  .ticket-conditions h3 {
+    margin-bottom: 20px;
+  }
+  
+  .ticket-conditions ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .ticket-conditions li {
+    margin-bottom: 10px;
+  }  

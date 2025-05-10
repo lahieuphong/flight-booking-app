@@ -4,7 +4,9 @@ import Booking from './pages/Booking';
 import FlightResult from './pages/FlightResult';
 import PassengerInfo from './pages/PassengerInfo';
 import PassengerForm from './pages/PassengerForm';
+import Payment from './pages/Payment';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Link to="/booking/flight-result">FlightResult</Link>
           <Link to="/booking/flight-result/passenger-info">PassengerInfo</Link>
           <Link to="/booking/flight-result/passenger-info/passenger-form">PassengerForm</Link>
+          <Link to="/payment">Payment</Link>
         </nav>
 
         {/* Routing */}
@@ -26,6 +29,7 @@ function App() {
           <Route path="/booking/flight-result" element={<FlightResult />} />
           <Route path="/booking/flight-result/passenger-info" element={<PassengerInfo />} />
           <Route path="/booking/flight-result/passenger-info/passenger-form" element={<PassengerForm />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
 
         {/* Footer */}
@@ -33,7 +37,7 @@ function App() {
           <div className="footer-container">
             <div className="footer-info">
               <p>
-                Bản quyền thuộc: <strong>Công ty cổ phần du lịch Hiểu Phong</strong>.
+              <strong>Bản quyền thuộc:</strong>Công ty cổ phần du lịch Hiểu Phong
               </p>
               <p>
                 <strong>Giấy phép ĐKKD số:</strong> 0101546010 Sở KHĐT Tp. Hồ Chí Minh cấp ngày 01/10/2004.
@@ -53,7 +57,7 @@ function App() {
 
             <div className="footer-contact">
               <p>
-                <strong>Trụ sở chính:</strong> Số 430 Lê Thị Riêng, Thới An, TPHCM.
+                <strong>Trụ sở chính:</strong> Số 430/28/5 Lê Thị Riêng, Thới An, TPHCM.
               </p>
               <p>
                 <strong>VPGD:</strong> B1-R6-K1-K2 TTTM Vincom Royal City, 72A Nguyễn Trãi, Thanh Xuân, Hà Nội.

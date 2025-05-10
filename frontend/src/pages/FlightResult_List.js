@@ -8,9 +8,6 @@ const FlightResult_List = ({
     adults,
     childCount,
     infants,
-    departureDate,
-    returnDate,
-    tripType,
     onContinue,
     excludedFlight, // 🆕 Thêm prop này
 }) => {
@@ -29,9 +26,6 @@ const FlightResult_List = ({
         };
         fetchSeatTypes();
     }, []);
-
-    const formatDate = (date) =>
-        date ? new Date(date).toLocaleDateString('vi-VN') : '';
 
     const handleSelectFlight = async (flightNumber) => {
         if (selectedFlight?.flight_number === flightNumber) {
@@ -76,16 +70,20 @@ const FlightResult_List = ({
 
             // ✅ Nếu đang là selectedFlight thì cập nhật luôn selected
             if (selectedFlight?.flight_number === flight.flight_number) {
+                const selectedSeat = seatTypes.find(type => type.id === newSeatTypeId);
+            
                 setSelectedFlight({
                     ...selectedFlight,
                     seat_type_id: newSeatTypeId,
+                    additional_price: selectedSeat?.additional_price || 0,
                 });
-            }
+            }            
         } catch (err) {
             console.error('Lỗi khi cập nhật seat_type_id:', err);
             alert('Lỗi khi cập nhật ghế: ' + err.message);
         }
     };
+
 
     return (
         <div className="flight-list-container">
@@ -151,72 +149,102 @@ const FlightResult_List = ({
                         </div>
 
                         {selectedFlight?.flight_number === flight.flight_number && (
-                            <div className="selected-flight">
-                                <h2>Chi tiết chuyến bay</h2>
-                                <div className="flight-card">
-                                    <img
-                                        src={`/images/${selectedFlight.airline_logo}`}
-                                        alt={selectedFlight.airline_name}
-                                        className="airline-logo"
-                                        onError={(e) => { e.target.src = '/images/placeholder.png'; }}
-                                    />
-                                    <h3>{selectedFlight.airline_name} ({selectedFlight.flight_number})</h3>
-                                    <p>✈️ {selectedFlight.departure_airport_name || 'Chưa có thông tin'} ({selectedFlight.departure_airport_code || 'XX'}) → {selectedFlight.arrival_airport_name || 'Chưa có thông tin'} ({selectedFlight.arrival_airport_code || 'XX'})</p>
-                                    <p>🕒 {selectedFlight.departure_time} → {selectedFlight.arrival_time} ({selectedFlight.duration})</p>
-                                    <p>💺 Loại ghế: {
-                                        seatTypes.find((type) => type.id === selectedFlight.seat_type_id)?.remaining_seats || `ID: ${selectedFlight.seat_type_id}`
-                                    }</p>
+                        <div className="selected-flight">
 
-                                    <p>💵 Phụ phí: {
-                                        seatTypes.find((type) => type.id === selectedFlight.seat_type_id)?.additional_price
+                            <table className="flight-detail-table">
+                                <thead>
+                                    <tr>
+                                        <th>👤 Loại hành khách</th>
+                                        <th>🎟️ Số lượng vé</th>
+                                        <th>💰 Giá mỗi vé</th>
+                                        <th>💺 Phụ phí ghế</th>
+                                        <th>🧾 Thuế</th>
+                                        <th>💵 Tổng giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Người lớn</td>
+                                        <td>{adults}</td>
+                                        <td>
+                                            {(adults * Number(selectedFlight.price_adult)).toLocaleString('vi-VN')} VND
+                                        </td>
+                                        <td>
+                                            {seatTypes.find((type) => type.id === selectedFlight.seat_type_id)?.additional_price
                                             ? `${Number(seatTypes.find((type) => type.id === selectedFlight.seat_type_id).additional_price).toLocaleString()} VND`
-                                            : `ID: ${selectedFlight.seat_type_id}`
-                                    }</p>
+                                            : `ID: ${selectedFlight.seat_type_id}`}
+                                        </td>
+                                        <td>
+                                            {(adults * (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * Number(selectedFlight.tax)).toLocaleString('vi-VN')} VND (
+                                            {(adults * Number(selectedFlight.tax) * 100).toFixed(0)}%)
+                                        </td>
+                                        <td>{(
+                                            (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults * (1 + Number(selectedFlight.tax))
+                                        ).toLocaleString('vi-VN')} VND</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trẻ em</td>
+                                        <td>{childCount}</td>
+                                        <td>
+                                            {(childCount * Number(selectedFlight.price_adult)).toLocaleString('vi-VN')} VND
+                                        </td>
+                                        <td>
+                                            {(() => {
+                                                const seat = seatTypes.find((type) => type.id === selectedFlight.seat_type_id);
+                                                const fee = seat?.additional_price ?? 0;
+                                                return (childCount * fee).toLocaleString('vi-VN') + ' VND';
+                                            })()}
+                                        </td>
+                                        <td>
+                                            {(childCount * (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * Number(selectedFlight.tax)).toLocaleString('vi-VN')} VND (
+                                            {(childCount * Number(selectedFlight.tax) * 100).toFixed(0)}%)
+                                        </td>
+                                        <td>{(
+                                            (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount * (1 + Number(selectedFlight.tax))
+                                        ).toLocaleString('vi-VN')} VND</td>
+                                    </tr>
 
-                                    <p>💰 Giá người lớn: {Number(selectedFlight.price_adult).toLocaleString()} VND</p>
-                                    <p>👶 Giá trẻ em: {Number(selectedFlight.price_child).toLocaleString()} VND</p>
-                                    <p>🍼 Giá em bé: {Number(selectedFlight.price_infant).toLocaleString()} VND</p>
-                                    <p>🧾 Thuế: {(Number(selectedFlight.tax) * 100).toFixed(0)}%</p>
-                                    <p>👤 Người lớn: {adults} | 🧒 Trẻ em: {childCount} | 👶 Em bé: {infants}</p>
+                                    <tr>
+                                        <td>Em bé</td>
+                                        <td>{infants}</td>
+                                        <td>
+                                            {(infants * Number(selectedFlight.price_adult)).toLocaleString('vi-VN')} VND
+                                        </td>
+                                        <td>
+                                            {(() => {
+                                                const seat = seatTypes.find((type) => type.id === selectedFlight.seat_type_id);
+                                                const fee = seat?.additional_price ?? 0;
+                                                return (infants * fee).toLocaleString('vi-VN') + ' VND';
+                                            })()}
+                                        </td>
+                                        <td>
+                                            {(infants * (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * Number(selectedFlight.tax)).toLocaleString('vi-VN')} VND (
+                                            {(infants * Number(selectedFlight.tax) * 100).toFixed(0)}%)
+                                        </td>
+                                        <td>{(
+                                            (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * infants * (1 + Number(selectedFlight.tax))
+                                        ).toLocaleString('vi-VN')} VND</td>
+                                    </tr>
 
-                                    <p>📅 Ngày đi: {formatDate(departureDate)}</p>
-                                    {tripType === 'round-trip' && <p>📅 Ngày về: {formatDate(returnDate)}</p>}
+                                    <tr>
+                                        <td>💵 Tổng cộng</td>
+                                        <td colSpan="5" className='total-price'><strong>{(
+                                            (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults * (1 + Number(selectedFlight.tax)) +
+                                            (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount * (1 + Number(selectedFlight.tax)) +
+                                            (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * infants * (1 + Number(selectedFlight.tax))
+                                        ).toLocaleString('vi-VN')} VND</strong></td>
+                                    </tr>
 
-                                    {selectedFlight.price_adult && (
-                                        <p>🧑 Tổng tiền người lớn: {(
-                                            (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults +
-                                            (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults * Number(selectedFlight.tax)
-                                        ).toLocaleString('vi-VN')} VND</p>
-                                    )}
+                                </tbody>
+                            </table>
 
-                                    {selectedFlight.price_child && (
-                                        <p>🧒 Tổng tiền trẻ em: {(
-                                            (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount +
-                                            (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount * Number(selectedFlight.tax)
-                                        ).toLocaleString('vi-VN')} VND</p>
-                                    )}
+                            <button className="continue-btn" onClick={() => onContinue?.(selectedFlight)}>
+                                <span className="btn-text">Tiếp tục</span>
+                                <span className="btn-arrow">→</span>
+                            </button>
 
-                                    {selectedFlight.price_infant && (
-                                        <p>🍼 Tổng tiền em bé: {(
-                                            (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * infants +
-                                            (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * infants * Number(selectedFlight.tax)
-                                        ).toLocaleString('vi-VN')} VND</p>
-                                    )}
-
-                                    <p>💵 <strong>Tổng cộng:</strong> {(
-                                        (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults * (1 + Number(selectedFlight.tax)) +
-                                        (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount * (1 + Number(selectedFlight.tax)) +
-                                        (Number(selectedFlight.price_infant) + Number(selectedFlight.additional_price)) * infants * (1 + Number(selectedFlight.tax))
-                                    ).toLocaleString('vi-VN')} VND</p>
-
-                                    <button
-                                        className="continue-btn"
-                                        onClick={() => onContinue?.(selectedFlight)}
-                                    >
-                                        Tiếp tục
-                                    </button>
-                                </div>
-                            </div>
+                        </div>
+                    
                         )}
                     </div>
                 ))

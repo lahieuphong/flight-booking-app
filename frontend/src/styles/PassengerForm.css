@@ -51,194 +51,7 @@
   margin-bottom: 20px;
 }
 
-.flight-block {
-  background: #fff;  /* Đổi màu nền thành trắng */
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
 
-.flight-block.no-shadow {
-  box-shadow: none !important; /* Loại bỏ shadow nếu cần */
-}
-
-.flight-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-
-.flight-header h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-}
-
-.flight-header p {
-  font-size: 16px;
-  color: #666;
-  gap: 10px;
-}
-
-.airport-route {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* nếu muốn căn giữa */
-  gap: 10px; /* tạo khoảng cách giữa span và img */
-}
-
-.flight-details {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  align-items: center;
-}
-
-.column-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.airline-logo {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
-
-.column-info,
-.column-time,
-.column-arrival,
-.column-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.column-info p,
-.column-time p,
-.column-arrival p {
-  font-size: 15px;
-  margin: 4px 0;
-  color: #333;
-}
-
-/* Từ / Tới */
-.label-text {
-  color: #333;
-}
-
-.airport-name {
-  color: #007bff;
-}
-
-.strong-uppercase {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-/* Giờ */
-.highlight-time {
-  color: #ff9f00;
-}
-
-/* Ngày */
-.gray-date {
-  color: #666;
-  margin-left: 0;
-}
-
-/* Đảm bảo giờ và ngày không bị cách nhau */
-.time-line {
-  font-size: 15px;
-  color: #333;
-  margin: 4px 0;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.time-line strong,
-.time-line span {
-  display: inline;
-  white-space: nowrap;
-}
-
-/* Nút điều kiện vé */
-.condition-button {
-  background: none;
-  border: none;
-  color: #1a73e8;
-  text-decoration: underline;
-  font-size: 16px;
-  padding: 6px 0;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-}
-
-.condition-button:hover {
-  color: #0b59d8;
-}
-
-/* Modal Styles (nếu có sử dụng modal cho chi tiết chuyến bay) */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 500px;
-  width: 100%;
-  position: relative;
-  text-align: left;
-  overflow-y: auto;
-  max-height: 80vh;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-}
-
-/* Modal Heading */
-h3 {
-  margin-bottom: 20px;
-}
-
-/* List style trong modal */
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-/* Hiệu ứng hover cho button điều kiện vé */
-.condition-button:hover {
-  color: #0b59d8;
-}
 
 /* ========================================================================== */
 
@@ -327,7 +140,7 @@ input[type="text"],
 input[type="date"] {
   width: 100%;
   padding: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
@@ -348,6 +161,26 @@ input[type="date"]:focus {
   background-color: #fff;
   outline: none;
   box-shadow: 0 0 5px rgba(13, 71, 161, 0.25); /* hiệu ứng sáng nhẹ */
+}
+
+/* Lỗi */
+.input-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+input.error-input {
+  border: 2px solid red !important;
+  background-color: #ffe5e5 !important;
+  outline: none;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -15px;
+  margin-left: 0;
+  text-align: left;
 }
 
 /* ========================================================================== */
@@ -599,8 +432,12 @@ input[type="date"]:focus {
 
 .voucher-message {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   transition: color 0.3s ease;
+}
+
+.voucher-message:hover {
+  transform: scale(1.05); 
 }
 
 .voucher-message.success {
@@ -612,6 +449,7 @@ input[type="date"]:focus {
   text-align: center;
   color: red;
 }
+
 
 /* ========================================================================== */
 
@@ -659,6 +497,22 @@ input[type="date"]:focus {
 .submit-section button svg {
   margin-right: 8px;
 }
+
+
+/* Lỗi */
+.error-button {
+  display: flex;
+  justify-content: center; 
+  margin-top: 10px;
+  color: red;
+  font-size: 1rem;
+  transition: color 0.3s ease; 
+}
+
+.error-button:hover {
+  color: darkred;
+}
+
 
 /* ========================================================================== */
 
@@ -729,6 +583,26 @@ input[type="date"]:focus {
 
 .contact-info-section button:hover {
   background-color: #e65100;
+}
+
+/* Lỗi */
+.input-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.error-input {
+  border: 2px solid red !important;
+  background-color: #ffe5e5 !important;
+  outline: none;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -8px;
+  margin-left: 0;
+  text-align: left;
 }
 
 /* ========================================================================== */

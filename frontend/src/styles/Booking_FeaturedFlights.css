@@ -1,73 +1,72 @@
-.featured-flights {
-    position: relative;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-
-  h3 {
-    color: #007bff;
+.booking-featured-flights {
+  width: 100%;
 }
-  
-  .flight-list {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-  }
-  
-  .flight-card {
-    text-decoration: none; /* Xóa gạch chân */
-    color: inherit; /* Giữ màu mặc định */
-    font-size: 14px;
-    flex: 0 0 250px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Hover Effect */
-  .flight-card:hover {
-    transform: translateY(-15px); /* Đẩy card lên nhẹ */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
-  }
-  
-  .flight-card:hover p {
-    color: #1e90ff; /* Đổi màu chữ khi hover */
-  }
-  
-  .flight-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
 
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(10%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    z-index: 10;
-    padding: 11px 15px;
-  }
-  
-  .carousel-button.prev {
-    left: 5px;
-  }
-  
-  .carousel-button.next {
-    right: 5px;
-  }
-  
-  .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
+.booking-featured-flights .flight-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  left: -1px;
+  width: calc(100% + 2px);
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.booking-featured-flights .flight-card {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  flex: 0 0 250px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.booking-featured-flights .flight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.booking-featured-flights .flight-card:hover p {
+  color: #1e90ff;
+}
+
+.booking-featured-flights .flight-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.booking-featured-flights .flight-card p {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Scrollbar ẩn hoặc trong suốt */
+.booking-featured-flights .flight-list::-webkit-scrollbar {
+  height: 8px;
+  background: transparent; /* Nền trong suốt */
+}
+
+.booking-featured-flights .flight-list::-webkit-scrollbar-thumb {
+  background: transparent; /* Thanh kéo trong suốt */
+  border-radius: 10px;
+}
+
+.booking-featured-flights .flight-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.1); /* Hiện nhẹ khi hover (tùy chọn) */
+}
+
+.booking-featured-flights .flight-list::-webkit-scrollbar-track {
+  background: transparent;
+}

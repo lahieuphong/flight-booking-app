@@ -43,36 +43,39 @@ function FilterAirlines({ onFilterChange }) {
   };
 
   return (
-    <div className="filter-section">
-      <h3 className="filter-title">Hãng chuyên chở</h3>
-      <table className="filter-table">
-        <thead>
-          <tr>
-            <th>Hiển thị</th>
-            <th>Hãng hàng không</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* ✅ Danh sách các hãng hàng không */}
-          {airlines.map((airline) => (
-            // ✅ Thêm class 'selected' cho hàng được chọn
-            <tr
-                key={airline.id}
-                className={airline.is_checked ? 'selected' : ''}
-            >
-                <td>
-                    <input
-                    type="checkbox"
-                    checked={airline.is_checked}
-                    onChange={() => handleCheckboxChange(airline.id)}
-                    />
-                </td>
-                <td>{airline.name}</td>
+    <div className="filter-wrapper">
+      <div className="filter-section">
+        <h3 className="filter-title">Hãng chuyên chở</h3>
+        <table className="filter-table">
+          <thead>
+            <tr>
+              <th>Hiển thị</th>
+              <th>Hãng hàng không</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {/* ✅ Danh sách các hãng hàng không */}
+            {airlines.map((airline) => (
+              // ✅ Thêm class 'selected' cho hàng được chọn
+              <tr
+                  key={airline.id}
+                  className={airline.is_checked ? 'selected' : ''}
+              >
+                  <td>
+                      <input
+                      type="checkbox"
+                      checked={airline.is_checked}
+                      onChange={() => handleCheckboxChange(airline.id)}
+                      />
+                  </td>
+                  <td>{airline.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+
   );
 }
 

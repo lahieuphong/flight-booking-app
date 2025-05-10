@@ -14,7 +14,6 @@ const Booking = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
-
   const [airports, setAirports] = useState([]);
 
   // ✅ Lấy danh sách sân bay từ API
@@ -233,9 +232,12 @@ const Booking = () => {
             </li>
           </ul>
         </div>
-
+        
         {/* Chuyến bay nổi bật */}
-        <Booking_FeaturedFlights />
+        <div className="offers-container">
+          <Booking_FeaturedFlights />
+        </div>
+        
       </div>
     </div>
   );

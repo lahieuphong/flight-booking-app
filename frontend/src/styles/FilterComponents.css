@@ -1,0 +1,161 @@
+/* Kiểu dành cho bảng */
+.filter-wrapper .filter-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+/* Kiểu dành cho tiêu đề bảng */
+.filter-wrapper .filter-table th {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Kiểu dành cho ô dữ liệu trong bảng */
+.filter-wrapper .filter-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+/* Kiểu cho checkbox */
+.filter-wrapper .filter-table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0px;
+    transform: scale(0.8); /* Thu nhỏ kích thước checkbox */
+}
+
+/* Kiểu cho dòng được chọn */
+.filter-wrapper .filter-table tr.selected td {
+    font-weight: 600;
+    background-color: #e9f5ff;
+    color: #007BFF;
+}
+
+/* Hover hiệu ứng cho dòng được chọn */
+.filter-wrapper .filter-table tr.selected:hover td {
+    background-color: #f0f8ff;
+    transform: scale(1.05);
+}
+
+/* Kiểu cho checkbox đã chọn */
+.filter-wrapper .filter-table input[type="checkbox"]:checked {
+    background-color: #007BFF;
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Kiểu cho checkbox trong hàng đầu tiên khi được chọn */
+.filter-wrapper .filter-table tr:first-child td input[type="checkbox"]:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Tạo khoảng cách cho hàng cuối cùng */
+.filter-wrapper .filter-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Kiểu cho span bên cạnh checkbox */
+.filter-wrapper .filter-table td input[type="checkbox"]:checked + span {
+    color: #007BFF;
+}
+
+.filter-wrapper .filter-table td input[type="checkbox"]:not(:checked) + span {
+    color: #555;
+}
+
+/* ============================
+   Kiểu cho FilterSection và FilterPrice
+============================ */
+
+/* Kiểu cho section lọc */
+.filter-wrapper .filter-section {
+    background-color: #ffffff; /* Màu nền trắng */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Đặt chiều rộng đầy đủ */
+    box-sizing: border-box;
+}
+
+/* Kiểu cho tiêu đề section lọc */
+.filter-wrapper .filter-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* ============================
+   Kiểu cho FilterPrice (Thanh trượt giá)
+============================ */
+
+/* Kiểu cho thanh trượt giá */
+.filter-wrapper .filter-section input[type="range"] {
+    -webkit-appearance: none;
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #1d4ed8, #3b82f6);
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+/* Kiểu cho nút trượt trên thanh trượt (Webkit) */
+.filter-wrapper .filter-section input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: #2563eb;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* Kiểu cho nút trượt trên thanh trượt (Mozilla) */
+.filter-wrapper .filter-section input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background-color: #2563eb;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Hover cho nút trượt */
+.filter-wrapper .filter-section input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #1d4ed8;
+}
+
+.filter-wrapper .filter-section input[type="range"]::-moz-range-thumb:hover {
+    background-color: #1d4ed8;
+}
+
+/* Kiểu cho phần hiển thị giá */
+.filter-wrapper .price-range {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+    background: linear-gradient(to right, #4b5563, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

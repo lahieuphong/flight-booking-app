@@ -74,7 +74,7 @@
     text-align: center;
   }
   
-  .back-btn,
+  /* .back-btn,
   .continue-btn {
     font-size: 16px;
     padding: 12px 25px;
@@ -92,16 +92,16 @@
   
   .back-btn:hover {
     background-color: #d32f2f;
-  }
+  } */
   
-  .continue-btn {
+  /* .continue-btn {
     background-color: #66bb6a;
     color: white;
   }
   
   .continue-btn:hover {
     background-color: #43a047;
-  }
+  } */
   
   .error-message {
     color: #d32f2f;

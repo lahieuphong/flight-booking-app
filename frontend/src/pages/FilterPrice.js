@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/FilterPrice.css';
 
 function FilterPrice({ onFilterChange }) {
   const [minPrice, setMinPrice] = useState(0);
@@ -54,20 +53,23 @@ function FilterPrice({ onFilterChange }) {
   };
 
   return (
-    <div className="filter-section">
-      <h3 className="filter-title">Giá vé</h3>
-      <input
-        type="range"
-        min={minPrice}
-        max={maxPrice}
-        step="1000"
-        value={selectedPrice}
-        onChange={handlePriceChange}
-      />
-      <div className="price-range">
-        {minPrice.toLocaleString()} VND ➔ {selectedPrice.toLocaleString()} VND
+    <div className="filter-wrapper">
+      <div className="filter-section">
+        <h3 className="filter-title">Giá vé</h3>
+        <input
+          type="range"
+          min={minPrice}
+          max={maxPrice}
+          step="1000"
+          value={selectedPrice}
+          onChange={handlePriceChange}
+        />
+        <div className="price-range">
+          {minPrice.toLocaleString()} VND ➔ {selectedPrice.toLocaleString()} VND
+        </div>
       </div>
     </div>
+
   );
 }
 

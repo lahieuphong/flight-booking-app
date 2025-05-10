@@ -152,7 +152,7 @@ const PassengerForm_FinalSummary = ({
             Tổng giá trên vé <span className="total-price">{formatCurrency(back.total)}</span>
           </h4>
           <h4 className="price-section-title price-row">
-            Giảm giá (*) <span className="discount">(-{voucherDiscount}%) -{formatCurrency(backDiscount)}</span>
+            Giảm giá <span className="discount">(-{voucherDiscount}%) -{formatCurrency(backDiscount)}</span>
           </h4>
           <h4 className="price-section-title price-row">
             Phí hành lý <span className="baggage-fee">{formatCurrency(baggageFeeBack)}</span>
