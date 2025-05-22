@@ -1,0 +1,197 @@
+.manage-voucher.voucher-container {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.manage-voucher.voucher-container h2, .manage-voucher.voucher-container h3 {
+  color: #ff6600;
+  text-align: center;
+}
+
+.manage-voucher .voucher-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  margin-bottom: 30px;
+}
+
+.manage-voucher .voucher-table th, .manage-voucher .voucher-table td {
+  padding: 12px;
+  text-align: center;
+  color: #333;
+  border: 1px solid #ffd699;
+}
+
+.manage-voucher .voucher-table th {
+  background-color: rgba(255, 204, 128, 0.3);
+}
+
+.manage-voucher .voucher-table tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-voucher .voucher-form {
+  background: rgba(255, 243, 224, 0.5);
+  padding: 20px;
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-voucher .voucher-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ffa726;
+  background-color: #fffdf8;
+  color: #333;
+}
+
+.manage-voucher .voucher-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.manage-voucher .voucher-form button {
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+}
+
+.manage-voucher .voucher-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-voucher .voucher-form .save-btn {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+}
+
+.manage-voucher .voucher-form .cancel-btn {
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+}
+
+/* Style for Status Toggle Button */
+.status-toggle {
+  padding: 8px 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Active Status (Đang hoạt động) - Green */
+.status-toggle.active {
+  background: linear-gradient(45deg, #66bb6a, #388e3c); /* Green gradient */
+  color: white;
+}
+
+.status-toggle.active:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #66bb6a;
+}
+
+/* Inactive Status (Đã tắt) - Light Gray */
+.status-toggle.inactive {
+  background: linear-gradient(45deg, #d3d3d3, #bdbdbd); /* Light gray gradient */
+  color: #666;
+}
+
+.status-toggle.inactive:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #bdbdbd;
+}
+
+
+/* Style for Add Button */
+.add-btn {
+  padding: 8px 12px;
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+/* Style for Edit Button */
+.edit-btn {
+  padding: 8px 12px;
+  background: linear-gradient(45deg, #ffa07a, #ff7043);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+/* Style for Delete Button */
+.delete-btn {
+  padding: 8px 12px;
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+
+.manage-voucher button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-voucher button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+@media (max-width: 768px) {
+  .manage-voucher .voucher-table th, .manage-voucher .voucher-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .manage-voucher .voucher-form {
+    padding: 15px;
+  }
+}

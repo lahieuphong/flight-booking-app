@@ -1,0 +1,155 @@
+.manage-users body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.manage-users .users-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-users h2, .manage-users h3 {
+  color: #ff6600;
+  text-align: center;
+}
+
+.manage-users .searchInput {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ffa94d;
+  background-color: #fffdf8;
+  color: #333;
+}
+
+.manage-users .userTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.manage-users .userTable th, .manage-users .userTable td {
+  border: 1px solid #ffd699;
+  padding: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-users .userTable th {
+  background-color: rgba(255, 204, 128, 0.3);
+  color: #333;
+}
+
+.manage-users .userTable tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-users .noData {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+.manage-users button {
+  margin: 2px;
+  padding: 8px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-users button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-users .addButton {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+}
+
+.manage-users .actionButton {
+  background: linear-gradient(45deg, #ffa07a, #ff7043);
+  color: #fff;
+}
+
+.manage-users .deleteButton {
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+}
+
+.manage-users .saveButton {
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+}
+
+.manage-users .cancelButton {
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+}
+
+.manage-users .formContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+}
+
+.manage-users .formGroup {
+  margin-bottom: 15px;
+}
+
+.manage-users .formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #cc5200;
+}
+
+.manage-users .formGroup input,
+.manage-users .formGroup select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+}
+
+.manage-users .checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .manage-users .userTable th, .manage-users .userTable td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .manage-users .formContainer {
+    padding: 15px;
+  }
+}

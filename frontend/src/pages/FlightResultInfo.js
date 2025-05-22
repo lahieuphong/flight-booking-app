@@ -410,9 +410,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import '../styles/FlightResult_Info.css';
-// import '../styles/FlightResult_List.css';
-import FlightResult_List from './FlightResult_List';
+import '../styles/FlightResultInfo.css';
+import FlightResultList from './FlightResultList';
 
 import FilterAirlines from './FilterAirlines';
 import FilterAircraft from './FilterAircraft';
@@ -421,7 +420,7 @@ import '../styles/FilterComponents.css';
 
 import { useNavigate } from 'react-router-dom';
 
-const FlightResult_Info = ({
+const FlightResultInfo = ({
   departure_airport,
   departure_airport_code,
   arrival_airport,
@@ -609,7 +608,7 @@ const FlightResult_Info = ({
 
           {/* Chuyến bay chiều đi */}
           <h4 className="flight-choice">Chọn chuyến bay chiều đi</h4>
-          <FlightResult_List
+          <FlightResultList
             flights={filteredFlights}
             setFlights={setFlights}
             selectedFlight={selectedOneWayFlight}
@@ -647,7 +646,7 @@ const FlightResult_Info = ({
             <>
               <h4 className="flight-choice">Chọn chuyến bay chiều về</h4>
               {returnFlights.length > 0 ? (
-                <FlightResult_List
+                <FlightResultList
                   flights={returnFlights}
                   setFlights={setFlights}
                   selectedFlight={selectedRoundTripFlight}
@@ -718,7 +717,7 @@ PassengerRow.propTypes = {
 };
 
 // ✅ Kiểm tra prop truyền vào
-FlightResult_Info.propTypes = {
+FlightResultInfo.propTypes = {
   departure_airport: PropTypes.string.isRequired,
   departure_airport_code: PropTypes.string.isRequired,
   arrival_airport: PropTypes.string.isRequired,
@@ -734,7 +733,7 @@ FlightResult_Info.propTypes = {
   setInfants: PropTypes.func.isRequired,
 };
 
-export default FlightResult_Info;
+export default FlightResultInfo;
 
 
 // FlightResult_List.propTypes = {

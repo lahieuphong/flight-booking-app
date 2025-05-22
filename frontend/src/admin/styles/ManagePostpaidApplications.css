@@ -1,0 +1,126 @@
+.manage-postpaid body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.manage-postpaid .postpaid-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-postpaid h2 {
+  color: #ff6600;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.manage-postpaid .postpaid-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  margin-bottom: 40px;
+}
+
+.manage-postpaid .postpaid-table th,
+.manage-postpaid .postpaid-table td {
+  border: 1px solid #ffd699;
+  padding: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-postpaid .postpaid-table th {
+  background-color: rgba(255, 204, 128, 0.3);
+  color: #333;
+}
+
+.manage-postpaid .postpaid-table tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-postpaid .partner-form {
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+.manage-postpaid .partner-form input,
+.manage-postpaid .partner-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+}
+
+.manage-postpaid .partner-form img {
+  display: block;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.manage-postpaid button {
+  margin: 2px;
+  padding: 8px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-postpaid button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-postpaid .addButton {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+}
+
+.manage-postpaid .actionButton {
+  background: linear-gradient(45deg, #ffa07a, #ff7043);
+  color: #fff;
+}
+
+.manage-postpaid .deleteButton {
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+}
+
+.manage-postpaid .partner-form button {
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+}
+
+.manage-postpaid .partner-form button:last-child {
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+}
+
+.manage-postpaid .postpaid-table span {
+  font-weight: bold;
+}

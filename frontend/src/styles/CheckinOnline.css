@@ -1,0 +1,204 @@
+.checkin-online-page {
+  color: #222;
+  background: #f9faff;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+
+
+.checkin-online-page h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 15px;
+  
+  display: inline-block;
+  position: relative;
+  animation: slideX 3s ease-in-out infinite alternate;
+}
+
+.checkin-online-page p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  color: #fff;
+  
+  display: inline-block;
+  position: relative;
+  animation: slideX 4s ease-in-out infinite alternate;
+}
+
+/* Đảm bảo cha có text-align center */
+.checkin-online-page {
+  text-align: center;
+}
+
+@keyframes slideX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+
+
+
+.checkin-online-page .search-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.checkin-online-page .search-input {
+  width: 250px;
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: 1.5px solid #aaa;
+  outline: none;
+  font-size: 1rem;
+  background: #fff;
+  color: #222;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkin-online-page .search-input::placeholder {
+  color: #999;
+}
+
+.checkin-online-page .search-input:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 8px rgba(0, 102, 204, 0.4);
+}
+
+.checkin-online-page .search-button {
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkin-online-page .search-button:hover {
+  background-color: #004a99;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+.checkin-online-page h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff; /* chữ màu trắng */
+  
+  display: inline-block;
+  position: relative;
+  animation: slideX 3.5s ease-in-out infinite alternate;
+}
+
+/* Đảm bảo cha có text-align center */
+.checkin-online-page {
+  text-align: center;
+}
+
+
+@keyframes slideX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+
+
+
+
+
+.checkin-online-page .flight-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.checkin-online-page .flight-table thead tr {
+  background-color: #0066cc;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.checkin-online-page .flight-table th,
+.checkin-online-page .flight-table td {
+  padding: 15px 20px;
+  vertical-align: middle;
+}
+
+.checkin-online-page .flight-table tbody tr {
+  background: #f0f6ff;
+  color: #222;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkin-online-page .flight-table tbody tr:hover {
+  background-color: #d0e4ff;
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 0 8px 15px rgba(0, 102, 204, 0.2);
+}
+
+.checkin-online-page .no-result {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  padding: 30px 0;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .checkin-online-page .search-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkin-online-page .search-input {
+    width: 80vw;
+    max-width: 350px;
+  }
+
+  .checkin-online-page .flight-table {
+    font-size: 0.85rem;
+  }
+
+  .checkin-online-page .flight-table th,
+  .checkin-online-page .flight-table td {
+    padding: 10px 12px;
+  }
+}

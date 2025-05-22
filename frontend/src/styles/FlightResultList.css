@@ -1,9 +1,9 @@
 /* ==== Container chính của danh sách chuyến bay ==== */
 .flight-list-container {
-  padding: 12px;
+  padding: 10px;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .flight-list {
@@ -47,7 +47,7 @@
 }
 
 /* ==== Tên hãng + chi tiết hành trình ==== */
-.flight-details {
+.flight-data {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@
   color: #333;
 }
 
-.flight-details span {
+.flight-data span {
   font-size: 14px;
   color: #666;
 }

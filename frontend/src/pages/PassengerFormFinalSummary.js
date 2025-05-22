@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/PassengerForm_FinalSummary.css';
+import '../styles/PassengerFormFinalSummary.css';
 
-const PassengerForm_FinalSummary = ({
+const PassengerFormFinalSummary = ({
   selectedFlight,
   returnFlight,
   tripType,
@@ -15,58 +15,45 @@ const PassengerForm_FinalSummary = ({
   mealOptions
 }) => {
 
-  const calcBaggageFeeGo = () => {
+  const calcBaggageFee = (direction) => {
     return passengerInfo.reduce((sum, pax) => {
-      const bag = baggageOptions.find(opt => opt.id === Number(pax.departureBaggageId));
+      const baggageId = direction === 'departure' ? pax.departureBaggageId : pax.returnBaggageId;
+      const bag = baggageOptions.find(opt => opt.id === Number(baggageId));
       return sum + (bag && bag.id !== 1 ? Number(bag.price) : 0);
     }, 0);
   };
 
-  const calcBaggageFeeBack = () => {
-    if (tripType !== 'round-trip') return 0;
-    return passengerInfo.reduce((sum, pax) => {
-      const bag = baggageOptions.find(opt => opt.id === Number(pax.returnBaggageId));
-      return sum + (bag && bag.id !== 1 ? Number(bag.price) : 0);
+  const calcMealFoodFee = (direction) => {
+    return passengerInfo.reduce((total, pax) => {
+      const foodId = direction === 'departure' ? pax.departureFoodMealId : pax.returnFoodMealId;
+      const food = mealOptions.find(opt => opt.id === Number(foodId));
+      return food && food.id !== 1 ? total + Number(food.price) : total;
     }, 0);
   };
 
-  const calcMealFee = (direction) => {
-    let total = 0;
-
-    passengerInfo.forEach(pax => {
-      const foodId  = direction === 'departure' ? pax.departureFoodMealId  : pax.returnFoodMealId;
+  const calcMealDrinkFee = (direction) => {
+    return passengerInfo.reduce((total, pax) => {
       const drinkId = direction === 'departure' ? pax.departureDrinkMealId : pax.returnDrinkMealId;
-
-      const food  = mealOptions.find(opt => opt.id === Number(foodId));
       const drink = mealOptions.find(opt => opt.id === Number(drinkId));
-
-      if (food && food.id !== 1)   total += Number(food.price);   // ID 1: 'Không chọn'
-      if (drink && drink.id !== 2) total += Number(drink.price); // ID 2: 'Không chọn'
-    });
-
-    return total;
+      return drink && drink.id !== 2 ? total + Number(drink.price) : total;
+    }, 0);
   };
-
-  const baggageFeeGo      = calcBaggageFeeGo();
-  const baggageFeeBack    = calcBaggageFeeBack();
-  const departureMealFee  = calcMealFee('departure');
-  const returnMealFee     = tripType === 'round-trip' ? calcMealFee('return') : 0;
 
   const calcFlightCost = (flight) => {
     const additional = Number(flight.additional_price);
-    const taxRate    = Number(flight.tax);
+    const taxRate = Number(flight.tax);
 
-    const baseAdult  = adults     * (Number(flight.price_adult)  + additional);
-    const baseChild  = childCount * (Number(flight.price_child)  + additional);
-    const baseInfant = infants    * (Number(flight.price_infant) + additional);
+    const baseAdult = adults * (Number(flight.price_adult) + additional);
+    const baseChild = childCount * (Number(flight.price_child) + additional);
+    const baseInfant = infants * (Number(flight.price_infant) + additional);
 
-    const taxAdult   = baseAdult  * taxRate;
-    const taxChild   = baseChild  * taxRate;
-    const taxInfant  = baseInfant * taxRate;
+    const taxAdult = baseAdult * taxRate;
+    const taxChild = baseChild * taxRate;
+    const taxInfant = baseInfant * taxRate;
 
-    const totalBase  = baseAdult + baseChild + baseInfant;
-    const totalTax   = taxAdult + taxChild + taxInfant;
-    const total      = totalBase + totalTax;
+    const totalBase = baseAdult + baseChild + baseInfant;
+    const totalTax = taxAdult + taxChild + taxInfant;
+    const total = totalBase + totalTax;
 
     return {
       baseAdult, baseChild, baseInfant,
@@ -77,14 +64,23 @@ const PassengerForm_FinalSummary = ({
 
   const formatCurrency = (num) => `${Number(num).toLocaleString('vi-VN')} VND`;
 
-  const go   = selectedFlight ? calcFlightCost(selectedFlight) : {};
-  const back = returnFlight   ? calcFlightCost(returnFlight)   : {};
+  const go = selectedFlight ? calcFlightCost(selectedFlight) : {};
+  const back = returnFlight ? calcFlightCost(returnFlight) : {};
 
-  const goDiscount   = (go.total   * voucherDiscount) / 100;
-  const backDiscount = (back.total * voucherDiscount) / 100;
+  const goDiscount = (go.total || 0) * voucherDiscount / 100;
+  const backDiscount = (back.total || 0) * voucherDiscount / 100;
 
-  const goFinal   = (go.total || 0)   - goDiscount   + baggageFeeGo   + departureMealFee;
-  const backFinal = (back.total || 0) - backDiscount + baggageFeeBack + returnMealFee;
+  const baggageFeeGo = calcBaggageFee('departure');
+  const baggageFeeBack = tripType === 'round-trip' ? calcBaggageFee('return') : 0;
+
+  const mealFoodFeeGo = calcMealFoodFee('departure');
+  const mealDrinkFeeGo = calcMealDrinkFee('departure');
+
+  const mealFoodFeeBack = tripType === 'round-trip' ? calcMealFoodFee('return') : 0;
+  const mealDrinkFeeBack = tripType === 'round-trip' ? calcMealDrinkFee('return') : 0;
+
+  const goFinal = (go.total || 0) - goDiscount + baggageFeeGo + mealFoodFeeGo + mealDrinkFeeGo;
+  const backFinal = (back.total || 0) - backDiscount + baggageFeeBack + mealFoodFeeBack + mealDrinkFeeBack;
 
   const totalPrice = goFinal + (tripType === 'round-trip' ? backFinal : 0);
 
@@ -124,10 +120,15 @@ const PassengerForm_FinalSummary = ({
           <h4 className="price-section-title price-row">
             Phí hành lý <span className="baggage-fee">{formatCurrency(baggageFeeGo)}</span>
           </h4>
+          <h4 className="price-section-title price-row">
+            Phí đồ ăn <span className="meal-fee">{formatCurrency(mealFoodFeeGo)}</span>
+          </h4>
+          <h4 className="price-section-title price-row">
+            Phí nước uống <span className="meal-fee">{formatCurrency(mealDrinkFeeGo)}</span>
+          </h4>
           <h4 className="price-section-title price-section-label price-row">
             Giá vé lượt đi <span className="final-price">{formatCurrency(goFinal)}</span>
           </h4>
-
         </div>
       )}
 
@@ -147,7 +148,6 @@ const PassengerForm_FinalSummary = ({
           <p className="price-row">{childCount} Trẻ em x <span>{formatCurrency(back.taxChild)}</span></p>
           <p className="price-row">{infants} Trẻ nhỏ x <span>{formatCurrency(back.taxInfant)}</span></p>
 
-          
           <h4 className="price-section-title price-row">
             Tổng giá trên vé <span className="total-price">{formatCurrency(back.total)}</span>
           </h4>
@@ -157,10 +157,15 @@ const PassengerForm_FinalSummary = ({
           <h4 className="price-section-title price-row">
             Phí hành lý <span className="baggage-fee">{formatCurrency(baggageFeeBack)}</span>
           </h4>
+          <h4 className="price-section-title price-row">
+            Phí đồ ăn <span className="meal-fee">{formatCurrency(mealFoodFeeBack)}</span>
+          </h4>
+          <h4 className="price-section-title price-row">
+            Phí nước uống <span className="meal-fee">{formatCurrency(mealDrinkFeeBack)}</span>
+          </h4>
           <h4 className="price-section-title price-section-label price-row">
             Giá vé lượt về <span className="final-price">{formatCurrency(backFinal)}</span>
           </h4>
-
         </div>
       )}
 
@@ -171,11 +176,10 @@ const PassengerForm_FinalSummary = ({
         </h4>
       </div>
     </div>
-
   );
 };
 
-PassengerForm_FinalSummary.propTypes = {
+PassengerFormFinalSummary.propTypes = {
   selectedFlight: PropTypes.object,
   returnFlight: PropTypes.object,
   tripType: PropTypes.string,
@@ -188,4 +192,4 @@ PassengerForm_FinalSummary.propTypes = {
   mealOptions: PropTypes.array.isRequired,
 };
 
-export default PassengerForm_FinalSummary;
+export default PassengerFormFinalSummary;

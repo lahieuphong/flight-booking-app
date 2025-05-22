@@ -1,0 +1,168 @@
+.manage-airlines body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.manage-airlines .airline-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-airlines h2,
+.manage-airlines h3 {
+  color: #ff6600;
+  text-align: center;
+}
+
+.manage-airlines .search-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ffa94d;
+  background-color: #fffdf8;
+  color: #333;
+}
+
+.manage-airlines .airline-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.manage-airlines .airline-table th,
+.manage-airlines .airline-table td {
+  border: 1px solid #ffd699;
+  padding: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-airlines .airline-table th {
+  background-color: rgba(255, 204, 128, 0.3);
+  color: #333;
+}
+
+.manage-airlines .airline-table tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-airlines .text-center {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+}
+
+.manage-airlines button {
+  margin: 2px;
+  padding: 8px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-airlines button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-airlines .btn-add {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+}
+
+.manage-airlines .btn-edit {
+  background: linear-gradient(45deg, #ffa07a, #ff7043);
+  color: #fff;
+}
+
+.manage-airlines .btn-delete {
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+}
+
+.manage-airlines .btn-save {
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+}
+
+.manage-airlines .btn-cancel {
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+}
+
+.manage-airlines .airline-form {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+}
+
+.manage-airlines .form-group {
+  margin-bottom: 15px;
+}
+
+.manage-airlines .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #cc5200;
+}
+
+.manage-airlines .form-group input[type="text"],
+.manage-airlines .form-group input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+}
+
+.manage-airlines .preview-container {
+  margin-top: 10px;
+}
+
+.manage-airlines .logo-preview {
+  max-width: 150px;
+  max-height: 100px;
+  box-shadow: 0 0 5px rgba(255, 183, 77, 0.7);
+}
+
+.manage-airlines .form-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .manage-airlines .airline-table th,
+  .manage-airlines .airline-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .manage-airlines .airline-form {
+    padding: 15px;
+  }
+}

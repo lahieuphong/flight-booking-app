@@ -1,16 +1,14 @@
 /* 📦 Container chính cho mỗi khối chuyến bay */
 .flight-block {
     background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin: 5px auto 5px auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
-  
-  .flight-block.no-shadow {
-    box-shadow: none !important;
-  }
-  
+
+
+    
   /* 🧾 Tiêu đề và tuyến bay */
   .flight-header {
     display: flex;
@@ -20,7 +18,7 @@
   }
   
   .flight-header h3 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
     margin: 0;
@@ -38,12 +36,13 @@
   }
   
   /* 🧩 Chi tiết chuyến bay theo cột */
-  /* .flight-details {
+  .flight-details {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
     align-items: center;
-  } */
+    justify-items: center; 
+    width: 100%;
+  }
   
   .column-img {
     display: flex;
@@ -55,6 +54,7 @@
     width: 50px;
     height: auto;
     object-fit: contain;
+    margin-bottom: 10px;
   }
   
   .column-info,
@@ -64,6 +64,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   
   .column-info p,

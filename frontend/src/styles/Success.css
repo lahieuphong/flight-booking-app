@@ -1,0 +1,308 @@
+.success-page {
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;  
+}
+
+
+/* DIV1 */
+.success-header {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  background: linear-gradient(to right, rgba(255, 153, 0, 0.2), rgba(255, 153, 0, 0.2));
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: lighten;
+  border-radius: 16px;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.success-header .success-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
+}
+
+.success-header .success-text h1 {
+  color: #c62828;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.success-header .success-text p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+.success-header .success-text strong {
+  font-weight: 600;
+  color: #000;
+}
+
+
+/* DIV2 */
+.booking-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.booking-info {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+.booking-info .qr-wrapper {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 100%; /* Đảm bảo phần tử cha có chiều cao để căn giữa ảnh */
+}
+
+.qr-wrapper .qr-code {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+
+.booking-info .booking-details {
+  flex: 1 1;
+  margin-top: -20px;
+}
+
+.booking-info .detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; 
+}
+
+.detail-row .label-column,
+.detail-row .value-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Giảm khoảng cách giữa các phần tử trong mỗi cột */
+  margin: 0; /* Xóa margin để không có khoảng cách thừa */
+}
+
+.detail-row .label-column {
+  text-align: left;
+}
+
+.detail-row .value-column {
+  text-align: right;
+  font-weight: bold;
+}
+
+.detail-row .label-column p,
+.detail-row .value-column p {
+  line-height: 1.1; /* Giảm line-height trong các p để dính sát nhau */
+  margin: 0; /* Xóa margin để không có khoảng cách thừa */
+}
+
+.booking-info .divider {
+  margin: 20px 0 10px;
+  border: none;
+  height: 1px;
+  background: #ccc;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin: 0; /* Xóa margin để các phần tử dính sát nhau */
+}
+
+.booking-details .flight-number,
+.booking-details .detail-row .total-amount {
+  color: #d32f2f;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.1; /* Giảm line-height ở các flight-number và total-amount */
+}
+
+
+/* DIV3 */
+/* Tổng thể phần thông tin chuyến bay */
+.flight-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Giảm khoảng cách giữa các chuyến bay */
+}
+
+/* Thẻ chứa từng chuyến bay */
+.flight-info .flight-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border-left: 8px solid #a4dcf5;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+/* Tiêu đề card */
+.success-page .flight-info .flight-header {
+  background-color: #d6efff;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Phần thân của card */
+.flight-info .flight-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 10px; /* Giảm padding để các phần tử gần nhau hơn */
+  gap: 15px; /* Giảm gap giữa các phần tử */
+}
+
+/* Divider dọc giữa hai phần */
+.flight-info .divider {
+  width: 1px;
+  background-color: #ccc;
+  height: auto;
+  align-self: stretch;
+}
+
+/* Bên trái - thông tin bay */
+.flight-info .left-info {
+  flex: 1;
+}
+
+/* Ngày bay */
+.flight-info .flight-date {
+  font-weight: 600;
+  margin-top: -10px; /* Giảm khoảng cách dưới ngày bay */
+  color: #555;
+  font-size: 14px;
+}
+
+/* Thời gian và sân bay */
+.flight-info .flight-times {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px; /* Giảm khoảng cách giữa các phần tử trong flight-times */
+  justify-content: center;
+}
+
+/* Sân bay */
+.flight-info .airport-block {
+  text-align: center;
+}
+.flight-info .airport-block h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+}
+.flight-info .airport-block p {
+  font-size: 16px;
+  color: #333;
+  margin: 2px 0 0; /* Giảm margin để các phần tử dính sát hơn */
+}
+
+/* Thời lượng chuyến bay */
+.flight-info .duration-block {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 6px; /* Thêm margin-top để các phần tử không quá sát nhau */
+}
+
+.flight-info .plane-icon {
+  font-size: 60px;
+  display: block;
+  margin: -20px 0;
+}
+
+/* Bên phải - thông tin giá, vé */
+.flight-info .right-info {
+  gap: 4px;
+  min-width: 35%;
+  text-align: center;
+}
+
+/* Icon hạng vé */
+.flight-info .class-logo {
+  width: 32px;
+  height: auto;
+}
+
+/* Giá tiền */
+.flight-info .price {
+  color: #d32f2f;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 4px; /* Thêm margin-top để có khoảng cách nhỏ với phần trên */
+}
+
+.flight-info .fee-disclaimer {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: -10px;
+  font-style: italic; 
+}
+
+
+/* Nút Quay lại */
+.go-back-button {
+  background-color: rgba(255, 153, 0, 0.2); /* Màu nền cam nhạt */
+  color: #ff9800; /* Màu chữ cam đậm */
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid #ff9800; /* Đổi viền sang cam */
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* Hiệu ứng khi hover */
+.go-back-button:hover {
+  background-color: #ff9800; /* Màu nền cam đậm khi hover */
+  color: white; /* Màu chữ trắng */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng khi nhấn nút */
+.go-back-button:active {
+  background-color: #f57c00; /* Màu nền cam đậm khi active */
+  color: white; /* Màu chữ trắng */
+  transform: scale(0.98);
+  transform: translateX(5px); /* Dịch chuyển nút sang bên phải */
+}

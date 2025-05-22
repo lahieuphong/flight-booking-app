@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import '../styles/Booking_FeaturedFlights.css';
+import '../styles/BookingFeaturedFlights.css';
 
 const Booking_FeaturedFlights = () => {
   const listRef = useRef(null);

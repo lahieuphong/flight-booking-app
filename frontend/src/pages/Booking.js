@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Booking.css'; 
 import { useNavigate } from 'react-router-dom';
-import Booking_FeaturedFlights from './Booking_FeaturedFlights'; 
+import BookingFeaturedFlights from './BookingFeaturedFlights'; 
 
 const Booking = () => {
   const [departure_airport, setDepartureAirport] = useState('');
@@ -16,7 +16,9 @@ const Booking = () => {
   const [infants, setInfants] = useState(0);
   const [airports, setAirports] = useState([]);
 
-  // ✅ Lấy danh sách sân bay từ API
+  const navigate = useNavigate();
+
+  // Lấy danh sách sân bay từ API
   useEffect(() => {
     const fetchAirports = async () => {
       try {
@@ -31,51 +33,84 @@ const Booking = () => {
     fetchAirports();
   }, []);
 
+  // Xử lý thay đổi điểm đi
   const handleDepartureChange = (e) => {
     const selectedCode = e.target.value;
     const selectedAirport = e.target.options[e.target.selectedIndex].getAttribute('data-name');
-  
+
     setDepartureAirport(selectedAirport);
     setDepartureAirportCode(selectedCode);
-  
+
+    // Nếu điểm đi trùng điểm đến, reset điểm đến
     if (selectedAirport === arrival_airport) {
       setArrivalAirport('');
       setArrivalAirportCode('');
     }
   };
-  
+
+  // Xử lý thay đổi điểm đến
   const handleArrivalChange = (e) => {
     const selectedCode = e.target.value;
     const selectedAirport = e.target.options[e.target.selectedIndex].getAttribute('data-name');
-  
+
     setArrivalAirport(selectedAirport);
     setArrivalAirportCode(selectedCode);
-  
+
+    // Nếu điểm đến trùng điểm đi, reset điểm đi
     if (selectedAirport === departure_airport) {
       setDepartureAirport('');
       setDepartureAirportCode('');
     }
   };
-  
-  const navigate = useNavigate();
 
+  // Hàm kiểm tra ngày hợp lệ: ngày đi phải là ngày hôm nay hoặc sau, ngày về phải sau ngày đi
+  const isValidDates = () => {
+    if (!departureDate) return false;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const depDate = new Date(departureDate);
+    depDate.setHours(0, 0, 0, 0);
+
+    if (depDate < today) return false; // Ngày đi không được trước hôm nay
+
+    if (tripType === 'round-trip') {
+      if (!returnDate) return false;
+      const retDate = new Date(returnDate);
+      retDate.setHours(0, 0, 0, 0);
+      if (retDate <= depDate) return false; // Ngày về phải sau ngày đi
+    }
+
+    return true;
+  };
+
+  // Xử lý tìm kiếm
   const handleSearch = async () => {
-    if (!departure_airport || !arrival_airport || !departureDate || (tripType === 'round-trip' && !returnDate)) {
-      alert('Vui lòng nhập đầy đủ thông tin hành trình!');
+    // Kiểm tra nhập liệu bắt buộc
+    if (!departure_airport || !arrival_airport) {
+      alert('Vui lòng chọn điểm đi và điểm đến!');
       return;
     }
-  
+
+    if (!isValidDates()) {
+      alert('Vui lòng chọn ngày đi và ngày về hợp lệ!\nNgày đi phải là hôm nay hoặc sau hôm nay.\nNgày về phải sau ngày đi.');
+      return;
+    }
+
+    if (infants > adults) {
+      alert('Số em bé không được vượt quá số người lớn!');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:5001/api/search', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ departure_airport, arrival_airport }),
       });
-  
+
       const result = await response.json();
-  
+
       if (result.success) {
         navigate('/booking/flight-result', {
           state: {
@@ -88,7 +123,7 @@ const Booking = () => {
             tripType,
             adults,
             children,
-            infants
+            infants,
           },
         });
       } else {
@@ -105,8 +140,8 @@ const Booking = () => {
       {/* Chọn hành trình */}
       <div className="booking-box">
         <h3>1. Chọn hành trình</h3>
-        
-        <h4>Điểm đi: </h4>
+
+        <h4>Điểm đi:</h4>
         <select value={departure_airport_code} onChange={handleDepartureChange}>
           <option value="">Chọn điểm đi...</option>
           {airports
@@ -118,7 +153,7 @@ const Booking = () => {
             ))}
         </select>
 
-        <h4>Điểm đến: </h4>
+        <h4>Điểm đến:</h4>
         <select value={arrival_airport_code} onChange={handleArrivalChange}>
           <option value="">Chọn điểm đến...</option>
           {airports
@@ -134,20 +169,24 @@ const Booking = () => {
       {/* Chọn ngày bay */}
       <div className="booking-box">
         <h3>2. Chọn ngày bay</h3>
-        <h4>Ngày đi: </h4>
+
+        <h4>Ngày đi:</h4>
         <input
           type="date"
           value={departureDate}
           onChange={(e) => setDepartureDate(e.target.value)}
+          min={new Date().toISOString().split('T')[0]} // Ngày đi không thể chọn trước hôm nay
         />
 
-        <h4>Ngày về: </h4>
+        <h4>Ngày về:</h4>
         <input
           type="date"
           value={returnDate}
           onChange={(e) => setReturnDate(e.target.value)}
           disabled={tripType === 'one-way'}
+          min={departureDate || new Date().toISOString().split('T')[0]} // Ngày về phải sau ngày đi
         />
+
         <div className="trip-type-container">
           <label className="trip-type-option">
             <input
@@ -156,7 +195,10 @@ const Booking = () => {
               name="tripType"
               value="one-way"
               checked={tripType === 'one-way'}
-              onChange={() => setTripType('one-way')}
+              onChange={() => {
+                setTripType('one-way');
+                setReturnDate(''); // reset ngày về khi chuyển về một chiều
+              }}
             />
             <label htmlFor="one-way">Một chiều</label>
           </label>
@@ -178,11 +220,12 @@ const Booking = () => {
       {/* Chọn hành khách */}
       <div className="booking-box">
         <h3>3. Chọn hành khách</h3>
+
         <div className="passenger-box">
           <div className="passenger-row">
             <span className="passenger-label">Người lớn:</span>
             <div className="passenger-controls">
-              <button onClick={() => setAdults(adults - 1)} disabled={adults <= 1}>-</button>
+              <button onClick={() => setAdults(adults > 1 ? adults - 1 : 1)}>−</button>
               <span className="passenger-count">{adults}</span>
               <button onClick={() => setAdults(adults + 1)}>+</button>
             </div>
@@ -191,7 +234,7 @@ const Booking = () => {
           <div className="passenger-row">
             <span className="passenger-label">Trẻ em:</span>
             <div className="passenger-controls">
-              <button onClick={() => setChildren(children - 1)} disabled={children <= 0}>-</button>
+              <button onClick={() => setChildren(children > 0 ? children - 1 : 0)}>−</button>
               <span className="passenger-count">{children}</span>
               <button onClick={() => setChildren(children + 1)}>+</button>
             </div>
@@ -200,9 +243,17 @@ const Booking = () => {
           <div className="passenger-row">
             <span className="passenger-label">Em bé:</span>
             <div className="passenger-controls">
-              <button onClick={() => setInfants(infants - 1)} disabled={infants <= 0}>-</button>
+              <button onClick={() => setInfants(infants > 0 ? infants - 1 : 0)}>−</button>
               <span className="passenger-count">{infants}</span>
-              <button onClick={() => setInfants(infants + 1)}>+</button>
+              <button
+                onClick={() => {
+                  if (infants < adults) setInfants(infants + 1);
+                }}
+                disabled={infants >= adults}
+                title={infants >= adults ? 'Em bé không được vượt quá người lớn' : ''}
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
@@ -232,12 +283,11 @@ const Booking = () => {
             </li>
           </ul>
         </div>
-        
+
         {/* Chuyến bay nổi bật */}
         <div className="offers-container">
-          <Booking_FeaturedFlights />
+          <BookingFeaturedFlights />
         </div>
-        
       </div>
     </div>
   );

@@ -1,86 +1,95 @@
 /* Đảm bảo rằng toàn bộ form sử dụng Flexbox để phân chia không gian */
 .passenger-form-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;  /* Đảm bảo container chiếm toàn bộ chiều rộng */
+  width: 90%; /* The wrapper takes 90% of the screen width */
+  margin: 0 auto; 
+  /* background-color: red;  */
+  flex-direction: column;
+}
+
+.form-columns-container {
+    display: flex;
+    width: 100%; 
+    /* background-color: blue;  */
 }
 
 /* Cột bên trái chứa các phần DIV1 đến DIV6 và nút Tiếp tục */
 .left-column {
-  width: 70%;  /* Cột bên trái chiếm 70% chiều rộng */
   display: flex;
+  width: 75%; 
   flex-direction: column;
-  gap: 20px; /* Khoảng cách giữa các phần tử */
+  gap: 10px; 
+  margin: 10px 5px 10px auto;
 }
 
 /* Cột bên phải chứa DIV7 */
 .right-column {
-  width: 28%;  /* Cột bên phải chiếm 28% chiều rộng */
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  margin-left: auto;  /* Đẩy cột bên phải ra sát lề phải */
+  width: 25%;
+  justify-content: flex-end;
+  margin: 10px auto 10px 5px;
 }
 
-/* Nút Tiếp tục nằm ở bên trái */
-.submit-section button {
-  align-self: flex-start;  /* Đặt nút ở bên trái của cột */
-  padding: 10px 20px;
-  background-color: #4CAF50; /* Màu xanh cho nút */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+
+/* Flight Info Summary Box */
+.left-column .flight-info-summary {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%; 
 }
 
-.submit-section button:hover {
-  background-color: #45a049; /* Thay đổi màu khi hover */
+/* Final Summary Section Box */
+.right-column .final-summary-section {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%; 
 }
 
-/* ========================================================================== */
+
+
+
 
 /* DIV 1: Chuyến bay chiều đi / chiều về */
-.flight-info-summary {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #fff;  /* Đổi màu nền thành trắng */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
 
 
 
-/* ========================================================================== */
+
 
 /* DIV 2: Thông tin hành khách */
 .passenger-form-container {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
+  padding: 10px;
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
 }
 
+.passenger-form-container h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 10px;
+  text-align: center;
+}
+ 
 .form-wrapper {
-  margin-bottom: 35px;
-  background-color: #ffffff; /* Màu trắng rõ */
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 10px;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Đổ bóng nhẹ */
   transition: box-shadow 0.3s ease;
+
 }
 
 .form-wrapper h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #007bff;
-  margin-bottom: 15px;
+  margin: 10px;
   padding-left: 12px;
   border-left: 4px solid #ff7043;
   text-align: left;
@@ -88,8 +97,8 @@
 
 .custom-radio-group {
   display: flex;
-  gap: 25px;
-  margin: 10px 0 20px;
+  gap: 10px;
+  margin: 10px 0 10px 0;
   flex-wrap: wrap;
 }
 
@@ -107,7 +116,7 @@
   transition: background-color 0.3s;
 }
 
-.custom-radio:hover {
+passenger-input-form .custom-radio:hover {
   background-color: #ffccbc;
 }
 
@@ -140,10 +149,9 @@ input[type="text"],
 input[type="date"] {
   width: 100%;
   padding: 12px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f9f9f9;
   box-sizing: border-box;
   transition: all 0.3s ease;
@@ -163,99 +171,101 @@ input[type="date"]:focus {
   box-shadow: 0 0 5px rgba(13, 71, 161, 0.25); /* hiệu ứng sáng nhẹ */
 }
 
-/* Lỗi */
-.input-group {
-  margin-bottom: 16px;
-  text-align: left;
+/* Error styles for input fields */
+.error-radio-group {
+  border: 2px solid red !important;
+  background-color: #ffe5e5 !important;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
 }
 
-input.error-input {
+.input-group .error-text {
+  color: red;
+  font-size: 14px;
+  margin: 5px;
+  text-align: left;
+
+}
+
+.error-input {
   border: 2px solid red !important;
   background-color: #ffe5e5 !important;
   outline: none;
 }
 
-.error-text {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: -15px;
-  margin-left: 0;
-  text-align: left;
-}
 
-/* ========================================================================== */
+
+
+
 
 /* DIV 3: Thông tin hành lý */
-.flight-info-summary {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
+.flight-info-summary{
+  padding: 10px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e0e0e0;
+  /* border: 1px solid #e0e0e0; */
   box-sizing: border-box;
 }
 
-.flight-info-summary .flight-direction-section {
-  margin-bottom: 40px;
-}
-
-.flight-info-summary .flight-direction-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.flight-info-summary h2{
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin: 10px;
 }
 
-.flight-info-summary .airport-name {
-  font-size: 14px;
-  color: #666;
-  font-weight: normal;
-}
-
-.flight-info-summary .passenger-form-section {
-  margin-bottom: 30px;
+.passenger-form-section {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s ease;
 }
 
-.flight-info-summary .passenger-form-section h3 {
-  font-size: 20px;
+.flight-direction-label .flight-direction-title {
+  font-weight: bold;
+  font-size: 14px; 
+  color: #333;
+}
+
+.flight-direction-label .airport-name {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+
+.passenger-form-section h3 {
+  font-size: 18px;
   font-weight: 600;
   color: #007bff;
-  margin-bottom: 15px;
+  margin: 10px;
   padding-left: 12px;
   border-left: 4px solid #ff7043;
   text-align: left;
 }
 
-.flight-info-summary label {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 12px;
+.flight-direction-section .flight-direction-label {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* Canh giữa nội dung */
+  gap: 10px; /* Giảm khoảng cách giữa các phần tử */
+  text-align: center; /* Canh giữa chữ */
+  font-size: 14px;
+  font-weight: bold;
   color: #333;
+  margin: 10px;
 }
 
 .flight-info-summary select {
   width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  margin-bottom: 18px;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
 }
@@ -274,12 +284,13 @@ input.error-input {
   font-size: 16px;
 }
 
-/* ========================================================================== */
+
+
+
 
 /* DIV 4: Đồ ăn / đồ uống */
 .meal-section {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
+  padding: 10px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -287,115 +298,140 @@ input.error-input {
   box-sizing: border-box;
 }
 
-.flight-direction-section {
-  margin-bottom: 40px;
+/* Header style for meal section */
+.meal-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: center;
 }
 
-.flight-direction-section .flight-direction-label {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Canh giữa nội dung */
-  gap: 10px; /* Giảm khoảng cách giữa các phần tử */
-  text-align: center; /* Canh giữa chữ */
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin: 10px;
-}
-
-.airport-name {
-  font-size: 14px;
-  color: #666;
-  font-weight: normal; 
-}
-
+/* Section for passenger forms (meal options) */
 .passenger-form-section {
-  margin-bottom: 30px;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s ease;
 }
 
+/* Title for each passenger's meal options */
 .passenger-form-section h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #007bff;
-  margin-bottom: 15px;
+  margin: 10px;
   padding-left: 12px;
   border-left: 4px solid #ff7043;
   text-align: left;
 }
 
-.meal-section label {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 12px;
+/* Label for flight direction (departure and return) */
+.flight-direction-label {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* Centering the label content */
+  gap: 10px; /* Decreasing space between items */
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px;
+}
+
+/* Flight direction title (Chiều đi and Chiều về) */
+.flight-direction-label .flight-direction-title {
+  font-weight: bold;
+  font-size: 14px;
   color: #333;
 }
 
+/* Airport name styles */
+.flight-direction-label .airport-name {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+
+/* Flight arrow icon */
+.flight-arrow-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 1em;
+}
+
+/* Style for select elements */
 .meal-section select {
   width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  margin-bottom: 18px;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
 }
 
+/* Focused state for select inputs */
 .meal-section select:focus {
   border-color: #0d47a1;
   outline: none;
   box-shadow: 0 0 5px rgba(13, 71, 161, 0.25);
 }
 
+/* Hover state for select inputs */
 .meal-section select:hover {
-  border-color: #ff7043;
+  border-color: #42a5f5;
 }
 
+/* Option text styling */
 .meal-section option {
   font-size: 16px;
 }
 
-/* ========================================================================== */
+/* Additional styling for the select labels */
+.meal-section label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
 
 /* DIV 5: Mã giảm giá */
 .voucher-section {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
+  padding: 10px;
   background-color: #fff8f3;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #ffd6c1;
   box-sizing: border-box;
-  margin-top: 40px;
 }
 
 .voucher-section h2 {
   font-size: 22px;
   font-weight: bold;
   color: #ff7043;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .voucher-section p {
   font-size: 16px;
   color: #444;
   margin-bottom: 20px;
-  text-align: left; /* canh trái */
+  /* text-align: left; */
+  margin-left: 20px;
 }
 
 .voucher-section input[type="text"] {
-  width: 60%;
+  width: 80%;
   padding: 12px;
+  margin-left: 20px;
   font-size: 16px;
   border: 1px solid #ffa07a;
   border-radius: 6px;
@@ -426,14 +462,16 @@ input.error-input {
   transform: scale(1.05); /* phóng to nút nhẹ khi hover */
 }
 
-.voucher-section p {
+.voucher-message p {
   font-size: 16px;
+  text-align: center;
 }
 
 .voucher-message {
   margin-top: 10px;
   font-size: 1rem;
   transition: color 0.3s ease;
+  text-align: center; /* canh giữa tin nhắn */
 }
 
 .voucher-message:hover {
@@ -441,99 +479,34 @@ input.error-input {
 }
 
 .voucher-message.success {
-  text-align: center;
   color: green;
 }
 
 .voucher-message.error {
-  text-align: center;
   color: red;
 }
 
 
-/* ========================================================================== */
-
-/* DIV: Tiếp tục - Nút Quay lại và Tiếp tục */
-.submit-section {
-  display: flex;
-  justify-content: center; /* Căn giữa hai nút */
-  gap: 20px; /* Khoảng cách giữa hai nút */
-  margin-top: 40px;
-}
-
-.submit-section button {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.submit-section button:first-child {
-  background-color: #ff7043; /* màu cam cho nút Quay lại */
-  color: white;
-}
-
-.submit-section button:first-child:hover {
-  background-color: #e64a19; /* màu cam đậm khi hover */
-  transform: scale(1.05);
-}
-
-.submit-section button:last-child {
-  background-color: #4caf50; /* màu xanh cho nút Tiếp tục */
-  color: white;
-}
-
-.submit-section button:last-child:hover {
-  background-color: #388e3c; /* màu xanh đậm khi hover */
-  transform: scale(1.05);
-}
-
-.submit-section button svg {
-  margin-right: 8px;
-}
 
 
-/* Lỗi */
-.error-button {
-  display: flex;
-  justify-content: center; 
-  margin-top: 10px;
-  color: red;
-  font-size: 1rem;
-  transition: color 0.3s ease; 
-}
-
-.error-button:hover {
-  color: darkred;
-}
-
-
-/* ========================================================================== */
 
 
 /* DIV 6: Thông tin liên hệ */
 .contact-info-section {
-  font-family: 'Segoe UI', sans-serif;
-  padding: 30px;
+  padding: 20px;
   background-color: #ffffff; /* nền trắng */
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(255, 138, 101, 0.1);
   border: 1px solid #ffc4a3;
   box-sizing: border-box;
-  margin-top: 40px;
 }
 
 .contact-info-section h2 {
   font-size: 22px;
   font-weight: bold;
   color: #ff6f00;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .contact-info-section p {
@@ -570,7 +543,6 @@ input.error-input {
 }
 
 .contact-info-section button {
-  margin-top: 20px;
   padding: 12px 20px;
   font-size: 16px;
   background-color: #ff6f00;
@@ -579,6 +551,8 @@ input.error-input {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .contact-info-section button:hover {
@@ -605,7 +579,9 @@ input.error-input {
   text-align: left;
 }
 
-/* ========================================================================== */
+
+
+
 
 /* DIV 7: Tổng kết lại */
 .final-summary-section {
@@ -621,31 +597,93 @@ input.error-input {
 }
 
 .final-summary-section p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
+  margin: auto; 
 }
 
 .final-summary-section h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #007bff; 
 }
 
-.final-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
 
-.final-buttons button {
+
+
+
+
+/* DIV: Tiếp tục - Nút Quay lại và Tiếp tục */
+/* ==== Nút Quay lại ==== */
+.submit-section button:first-child {
+  background-color: rgba(255, 153, 0, 0.2); /* Màu nền cam nhạt */
+  color: #ff9800; /* Màu chữ cam đậm */
+  font-size: 16px;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  border: 2px solid #ff9800; /* Đổi viền sang cam */
+  border-radius: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-right: 10px; /* Khoảng cách giữa 2 nút */
 }
 
-.final-buttons button:hover {
-  background-color: #0056b3;
+.submit-section button:first-child:hover {
+  background-color: #ff9800; /* Màu nền cam đậm khi hover */
+  color: white; /* Màu chữ trắng */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-section button:first-child:active {
+  background-color: #f57c00; /* Màu nền cam đậm khi active */
+  color: white; /* Màu chữ trắng */
+  transform: scale(0.98);
+  transform: translateX(5px);
+}
+
+
+/* ==== Nút Tiếp tục ==== */
+.submit-section button:last-child {
+  background-color: rgba(76, 175, 80, 0.2); /* Màu nền xanh nhạt */
+  color: #4CAF50; /* Màu chữ xanh đậm */
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid #4CAF50; /* Đổi viền sang xanh */
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.submit-section button:last-child:hover {
+  background-color: #45a049; /* Màu nền xanh đậm khi hover */
+  color: white; /* Màu chữ trắng */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-section button:last-child:active {
+  background-color: #388e3c; /* Màu nền xanh đậm khi active */
+  color: white; /* Màu chữ trắng */
+  transform: scale(0.98);
+  transform: translateX(5px);
+}
+
+/* Đảm bảo các nút nằm ở giữa */
+.submit-section {
+  display: flex;
+  justify-content: center; /* Căn giữa các nút */
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các nút */
+  margin-top: 0;
+  margin-bottom: 10px;
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/FlightResult_List.css';
+import '../styles/FlightResultList.css';
 
-const FlightResult_List = ({
+const FlightResultList = ({
     flights,
     setFlights,
     adults,
@@ -106,7 +106,7 @@ const FlightResult_List = ({
                             </div>
 
                             <div className="flight-info">
-                                <div className="flight-details">
+                                <div className="flight-data">
                                     <span className="airline-name">{flight.airline_name}</span>
                                     <span>{flight.flight_number} | {flight.aircraft_type}</span>
                                 </div>
@@ -150,16 +150,15 @@ const FlightResult_List = ({
 
                         {selectedFlight?.flight_number === flight.flight_number && (
                         <div className="selected-flight">
-
                             <table className="flight-detail-table">
                                 <thead>
                                     <tr>
-                                        <th>👤 Loại hành khách</th>
-                                        <th>🎟️ Số lượng vé</th>
-                                        <th>💰 Giá mỗi vé</th>
-                                        <th>💺 Phụ phí ghế</th>
-                                        <th>🧾 Thuế</th>
-                                        <th>💵 Tổng giá</th>
+                                        <th><span role="img" aria-label="Người dùng">👤</span> Loại hành khách</th>
+                                        <th><span role="img" aria-label="Vé">🎟️</span> Số lượng vé</th>
+                                        <th><span role="img" aria-label="Giá">💰</span> Giá mỗi vé</th>
+                                        <th><span role="img" aria-label="Ghế">💺</span> Phụ phí ghế</th>
+                                        <th><span role="img" aria-label="Thuế">🧾</span> Thuế</th>
+                                        <th><span role="img" aria-label="Tổng tiền">💵</span> Tổng giá</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -227,7 +226,7 @@ const FlightResult_List = ({
                                     </tr>
 
                                     <tr>
-                                        <td>💵 Tổng cộng</td>
+                                        <td><span role="img" aria-label="Tổng cộng">💵</span> Tổng cộng</td>
                                         <td colSpan="5" className='total-price'><strong>{(
                                             (Number(selectedFlight.price_adult) + Number(selectedFlight.additional_price)) * adults * (1 + Number(selectedFlight.tax)) +
                                             (Number(selectedFlight.price_child) + Number(selectedFlight.additional_price)) * childCount * (1 + Number(selectedFlight.tax)) +
@@ -255,7 +254,7 @@ const FlightResult_List = ({
     );
 }
 
-FlightResult_List.propTypes = {
+FlightResultList.propTypes = {
     flights: PropTypes.array.isRequired,
     setFlights: PropTypes.func.isRequired,
     adults: PropTypes.number.isRequired,
@@ -268,4 +267,4 @@ FlightResult_List.propTypes = {
     excludedFlight: PropTypes.string,
 };
 
-export default FlightResult_List;
+export default FlightResultList;

@@ -1,0 +1,476 @@
+.payment-methods {
+  width: 100%;
+}
+
+.payment-methods h3,
+.payment-summary h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.payment-methods .payment-method {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  color: #666;
+}
+
+.payment-methods .payment-option-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+.payment-methods .payment-button {
+  background-color: #ffffff;
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 120px;
+  height: 100px;
+}
+
+.payment-methods .payment-button:hover {
+  background-color: #fff0e1;
+  transform: translateY(-2px);
+}
+
+.payment-methods .payment-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.payment-methods .payment-info {
+  padding: 15px;
+  background-color: #fff5e1;  /* Light yellow-orange background */
+  border-radius: 8px;
+  text-align: left;  /* Aligns text to the left inside the div */
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;  /* This will center the div horizontally */
+}
+
+.payment-info p {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0;
+  text-align: left;  /* Ensures text inside <p> stays left-aligned */
+}
+
+/* Additional Styling for Selected Methods */
+.payment-methods .selected-method-content {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.payment-methods .selected-method-content input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ffb84d;
+  background-color: #fff8e1;
+  /* width: 100%; */
+  font-size: 1em;
+}
+
+/* Nút button chính */
+.payment-methods .selected-method-content button {
+  background-color: #ff7f0e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;  /* Chiếm 100% chiều rộng */
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Nút hover của button chính */
+.payment-methods .selected-method-content button:hover {
+  background-color: #ff6a00;
+}
+
+.payment-methods .payment-details-form,
+.payment-methods .payment-qrcode,
+.payment-methods .postpaid-info {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff5e1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-methods h4 {
+  font-size: 20px;
+}
+
+.payment-methods .qr-code {
+  width: auto;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.payment-methods .terms-postpaid {
+  padding: 15px;
+  border-radius: 8px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.postpaid-terms-list {
+  padding-left: 20px;  /* Adds indentation for the list */
+  list-style-type: disc;  /* Bullet points style */
+  font-size: 14px;
+  color: #555;
+  margin-left: 0;  /* Ensures list is aligned to the left */
+  margin-right: 0; /* Removes extra margin */
+  width: fit-content;  /* Make width fit to content */
+}
+
+.postpaid-terms-list li {
+  margin-bottom: 10px;  /* Adds space between list items */
+}
+
+.checkbox {
+  display: flex;         /* Align items horizontally */
+  align-items: center;   /* Vertically center the checkbox and the label */
+  justify-content: center;
+  gap: 10px; 
+}
+
+input#agree-postpaid {
+  margin: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+.checkbox label {
+  font-size: 16px;       /* Set the font size for the label */
+  color: #333;           /* Optional: Adjust color for the label */
+  align-items: center;
+}
+
+.partners-buttons h5 {
+  font-size: 16px;
+}
+
+.payment-option-buttons {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  width: 100%; /* Ensures the container takes up full width */
+  height: 100%; /* Ensures the container takes up full height (if necessary) */
+}
+
+.payment-option-buttons .partner-card {
+  background-color: #ffe4b5;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;        /* Fixed width */
+  height: 150px;       /* Fixed height */
+  display: flex;       /* Aligns content properly */
+  flex-direction: column;  /* Stack the content vertically */
+  justify-content: space-between; /* Space out the content inside the card */
+  margin: 10px; /* Adds space between cards */
+}
+
+.payment-methods .partner-card:hover {
+  background-color: #ffcc80; /* Slightly darker orange on hover */
+}
+
+.payment-methods .partner-desc {
+  font-size: 0.9em;
+  color: #ff5722;
+}
+
+/* Đảm bảo loan-modal có z-index và kiểu hiển thị overlay */
+.payment-methods .loan-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center; /* Canh giữa modal */
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Màu nền overlay */
+    padding: 20px;
+    z-index: 1000; /* Đảm bảo modal hiển thị trên các thành phần khác */
+}
+
+/* Đảm bảo modal content có position relative để close modal nằm đúng vị trí */
+.payment-methods .loan-modal-content {
+    /* position: relative;   */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%; /* Chiều rộng của modal */
+    max-width: 600px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Đảm bảo nút đóng "×" nằm ở góc trái */
+.payment-methods .loan-modal-content .close-modal {
+  display: flex !important;
+  text-align: right !important;
+  justify-content: right !important; 
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  color: #ff7f0e;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 1010; /* Đảm bảo nó luôn hiển thị trên các phần tử khác */
+}
+
+.payment-methods .loan-modal-content input {
+  width: 100%; /* Ensures inputs are 100% of the container */
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ffb84d;
+  background-color: #fff8e1;
+  font-size: 1em;
+  box-sizing: border-box; /* Includes padding and border within the width */
+}
+
+.payment-methods .loan-modal-content button[type="submit"] {
+  background-color: #ff7f0e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.payment-methods .loan-modal-content button[type="submit"]:hover {
+  background-color: #ff6a00;
+}
+
+
+
+
+
+.payment-summary {
+  background-color: #fff9e6;  /* Màu nền nhẹ nhàng cho phần thanh toán */
+  border-radius: 10px;  /* Góc bo tròn */
+  padding: 20px;  /* Padding cho phần tử */
+  margin-top: 20px;  /* Khoảng cách phía trên */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Đổ bóng nhẹ để tạo chiều sâu */
+  width: 100%;  /* Chiều rộng tự động, có thể thêm max-width để giới hạn */
+  box-sizing: border-box;  /* Đảm bảo padding được tính trong chiều rộng */
+}
+
+.payment-summary p {
+  font-size: 16px;  /* Kích thước chữ hợp lý */
+  color: #666;  /* Đổi màu chữ sang #333 */
+  margin: 10px 0;  /* Khoảng cách giữa các dòng */
+  display: flex;  /* Dùng Flexbox để canh chỉnh các phần tử trong <p> */
+  justify-content: space-between;  /* Phân chia không gian giữa phần tên và giá trị */
+}
+
+.payment-summary p strong {
+  font-weight: bold;  /* Đảm bảo chữ mạnh mẽ cho phần quan trọng */
+  color: #333;  /* Đổi màu chữ sang #333 */
+}
+
+.payment-summary .total-amount {
+  font-size: 1.2em;  /* Kích thước chữ lớn hơn cho tổng cộng */
+  font-weight: bold;  /* Làm nổi bật chữ "Tổng cộng" */
+  color: #e60000;  /* Màu đỏ cho tổng số tiền */
+  border-top: 2px solid #ff7f0e;  /* Đường viền trên để phân biệt */
+  padding-top: 10px;  /* Khoảng cách giữa các nội dung và tổng cộng */
+  text-align: center;  /* Căn giữa */
+}
+
+
+
+
+
+/* Kiểu cho checkbox và label */
+.terms {
+  font-size: 16px;
+  color: #333;  /* Màu chữ tối */
+  margin-top: 20px;
+  margin-bottom: 20px;  /* Khoảng cách dưới checkbox */
+  display: flex;
+  align-items: center;  /* Canh giữa checkbox và văn bản */
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 10px;  /* Khoảng cách giữa checkbox và văn bản */
+  transform: scale(1.2);  /* Phóng to checkbox một chút */
+}
+
+.terms label {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.terms .link-text {
+  color: #ff7f0e;  /* Màu cam cho liên kết */
+  text-decoration: underline;  /* Gạch chân */
+  cursor: pointer;  /* Con trỏ chuột khi hover */
+  margin-left: 5px;  /* Khoảng cách giữa văn bản và liên kết */
+}
+
+.terms .link-text:hover {
+  color: #e60000;  /* Màu đỏ khi hover */
+  text-decoration: none;  /* Bỏ gạch chân khi hover */
+}
+
+/* Phần Overlay nền mờ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Phần Khung Modal */
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px; /* Bo tròn các góc */
+  padding: 20px;
+  width: 90%; /* Chiều rộng modal */
+  max-width: 600px; /* Chiều rộng tối đa */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Bóng đổ nhẹ */
+  box-sizing: border-box;
+  overflow-y: auto; /* Cho phép cuộn khi nội dung dài */
+  position: relative;
+  font-family: Arial, sans-serif; /* Chọn font chữ dễ đọc */
+  color: #333; /* Màu chữ */
+}
+
+/* Tiêu đề modal */
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #ff7f0e; /* Màu tiêu đề */
+  text-align: center;
+}
+
+/* Nội dung modal */
+.modal-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #666; /* Màu chữ nội dung */
+}
+
+/* Danh sách trong modal */
+.modal-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content ul li {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+  list-style-type: disc;
+}
+
+/* Nút đóng modal */
+.modal-content button {
+  background-color: #ff7f0e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.modal-content button:hover {
+  background-color: #ff6a00; /* Màu khi hover */
+}
+
+/* Nút đóng (×) ở góc trên bên phải */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff7f0e;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+
+
+
+
+
+.button-container {
+  display: flex; /* Sử dụng Flexbox */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center; /* Canh giữa theo chiều dọc */
+}
+
+.btn-payment {
+  background-color: #28a745; /* Màu nền nút */
+  color: white; /* Màu chữ */
+  font-size: 16px; /* Cỡ chữ */
+  padding: 12px 24px; /* Khoảng cách trong nút */
+  border: none; /* Bỏ viền */
+  border-radius: 8px; /* Bo góc */
+  cursor: pointer; /* Hiển thị con trỏ chuột kiểu tay khi hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu nền và hiệu ứng zoom khi hover */
+}
+
+.btn-payment:hover {
+  background-color: #218838; /* Màu nền khi hover */
+  transform: scale(1.05); /* Phóng to nút khi hover */
+}
+
+.btn-payment:active {
+  background-color: #1e7e34; /* Màu nền khi nút đang được nhấn */
+  transform: scale(1); /* Hiệu ứng nhấn nút */
+}
+
+.btn-payment:disabled {
+  background-color: #d6d6d6; /* Màu nền khi nút bị disabled */
+  color: #a1a1a1; /* Màu chữ khi nút bị disabled */
+  cursor: not-allowed; /* Hiển thị con trỏ chuột kiểu không được phép */
+  opacity: 0.6; /* Giảm độ sáng khi nút disabled */
+}

@@ -1,0 +1,181 @@
+.manage-aircraft body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.manage-aircraft .aircraft-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-aircraft h2,
+.manage-aircraft h3 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.manage-aircraft .searchInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ffa94d;
+  background-color: #fffdf8;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.manage-aircraft .aircraftTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.manage-aircraft .aircraftTable th,
+.manage-aircraft .aircraftTable td {
+  border: 1px solid #ffd699;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-aircraft .aircraftTable th {
+  background-color: rgba(255, 204, 128, 0.3);
+  font-weight: 600;
+}
+
+.manage-aircraft .aircraftTable tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-aircraft .actionButton,
+.manage-aircraft .addButton {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-aircraft .actionButton:hover,
+.manage-aircraft .addButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #ffb74d;
+}
+
+.manage-aircraft .deleteButton {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #f44336, #e53935);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-aircraft .deleteButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #e53935;
+}
+
+.manage-aircraft .formContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.manage-aircraft .formGroup {
+  margin-bottom: 15px;
+}
+
+.manage-aircraft .formGroup label {
+  display: block;
+  margin-bottom: 6px;
+  color: #cc5200;
+  font-weight: 600;
+}
+
+.manage-aircraft .formGroup input,
+.manage-aircraft .formGroup textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.manage-aircraft .saveButton {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-aircraft .saveButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-aircraft .cancelButton {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-aircraft .cancelButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #bdbdbd;
+}
+
+@media (max-width: 600px) {
+  .manage-aircraft .formContainer {
+    max-width: 100%;
+  }
+
+  .manage-aircraft .aircraftTable th,
+  .manage-aircraft .aircraftTable td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

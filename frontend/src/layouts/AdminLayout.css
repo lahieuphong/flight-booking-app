@@ -1,0 +1,236 @@
+/* Navbar - Thanh điều hướng trên cùng */
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: linear-gradient(to right, #ff9800, #ffc107); /* Gradient nổi bật */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Đảm bảo nằm trên cùng */
+}
+
+/* Logo trong navbar */
+.navbar-logo img {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); /* Hiệu ứng sáng cho logo */
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Phần bên phải của navbar */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dòng chữ chào mừng */
+.welcome-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Nút đăng xuất */
+.logout-btn {
+  padding: 10px 18px;
+  background-color: white;
+  color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.logout-btn:hover {
+  background-color: #ffe0b2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+
+
+.admin-app {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 30px 20px 20px 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 999; /* Đảm bảo sidebar luôn ở trên */
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toggle button */
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: #666;
+  align-self: flex-end;
+  transition: color 0.3s ease;
+}
+.toggle-btn:hover {
+  color: #0044cc;
+}
+
+/* Nav menu */
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Link chung */
+.admin-sidebar nav a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* Expanded style */
+.admin-sidebar nav a.expanded {
+  text-align: left;
+  width: auto;
+}
+
+/* Collapsed style */
+.admin-sidebar nav a.collapsed-item {
+  width: 40px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Hover effects (chung cho cả expanded & collapsed) */
+.admin-sidebar nav a:hover {
+  background-color: #ff9900;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* Hover viền trái cho expanded */
+.admin-sidebar nav a.expanded:hover {
+  border-left: 4px solid #fff;
+  padding-left: 8px; /* bù lại phần border */
+}
+
+/* Dot animation for collapsed */
+.admin-sidebar nav a.collapsed-item:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: pulseDot 1s infinite;
+}
+
+/* Glow animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.8);
+  }
+}
+
+/* Pulse dot effect */
+@keyframes pulseDot {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Khi collapsed thì sidebar nhỏ lại */
+.admin-app.collapsed .admin-sidebar {
+  width: 60px;
+  padding: 30px 10px 20px 10px;
+}
+
+/* Main content */
+.admin-main {
+  flex-grow: 1;
+  /* padding: 30px 40px; */
+  background-color: white;
+  box-shadow: inset 0 0 10px #f0f0f0;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+/* Scrollbar sidebar */
+.admin-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.admin-sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+.admin-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-app {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .admin-main {
+    padding: 20px;
+    margin-left: 0 !important;
+  }
+}

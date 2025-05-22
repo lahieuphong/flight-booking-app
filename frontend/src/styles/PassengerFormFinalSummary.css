@@ -2,9 +2,9 @@
   background-color: #ffffff; /* nền trắng */
   border: 1px dashed #dfe3e8; /* nét đứt nhẹ, màu xám sáng */
   padding: 16px;
-  font-family: Arial, sans-serif;
   font-size: 14px;
   color: #333;
+  border-radius: 10px;
 }
 
 /* Header */
@@ -18,14 +18,18 @@
   font-weight: bold;
   color: #1e4ca1;
   margin-bottom: 10px;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .airport-code-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  font-size: 0;
+  margin-top: 10px;
 }
 
 .airport-code {
@@ -35,7 +39,7 @@
   font-weight: bold;
   padding: 4px 10px;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 20px;
 }
 
 .flight-arrow-icon {
@@ -72,6 +76,8 @@
   margin-top: 12px;
   margin-bottom: 4px;
   text-align: left;
+  font-size: 16px;
+  color: #007bff;
 }
 
 .price-row {
@@ -109,7 +115,7 @@
   background-color: #f9a825;
   font-weight: bold;
   text-align: center;
-  padding: 10px 10px 15px 10px;
+  padding: 5px 10px 15px 10px;
   border-radius: 4px;
   margin-top: 24px;
   gap: 2px;
@@ -117,4 +123,5 @@
 
 .total-price-section-label {
   color: #fff;
+  font-size: 18px;
 }

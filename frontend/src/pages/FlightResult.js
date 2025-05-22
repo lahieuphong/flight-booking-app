@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/FlightResult.css';
-import FlightResult_Info from './FlightResult_Info';
+import FlightResultInfo from './FlightResultInfo';
 
 const FlightResult = () => {
   const location = useLocation();
@@ -38,8 +38,8 @@ const FlightResult = () => {
     <div className="flight-result-container">
       <h2>Kết quả tìm kiếm chuyến bay</h2>
 
-      {/* ✅ FlightResult_Info */}
-        <FlightResult_Info
+      {/* ✅ FlightResultInfo */}
+        <FlightResultInfo
           departure_airport={departure_airport}  
           departure_airport_code={departure_airport_code}  
           arrival_airport={arrival_airport}      

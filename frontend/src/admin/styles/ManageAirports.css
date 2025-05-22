@@ -1,0 +1,172 @@
+.manage-airports body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.manage-airports .airports-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-airports h2,
+.manage-airports h3 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.manage-airports .searchInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ffa94d;
+  background-color: #fffdf8;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.manage-airports .userTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.manage-airports .userTable th,
+.manage-airports .userTable td {
+  border: 1px solid #ffd699;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-airports .userTable th {
+  background-color: rgba(255, 204, 128, 0.3);
+  font-weight: 600;
+}
+
+.manage-airports .userTable tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.manage-airports .actionButton,
+.manage-airports .addButton {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-airports .actionButton:hover,
+.manage-airports .addButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #ffb74d;
+}
+
+.manage-airports .deleteButton {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #f44336, #e53935);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-airports .deleteButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #e53935;
+}
+
+.manage-airports .formContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.manage-airports .formGroup {
+  margin-bottom: 15px;
+}
+
+.manage-airports .formGroup label {
+  display: block;
+  margin-bottom: 6px;
+  color: #cc5200;
+  font-weight: 600;
+}
+
+.manage-airports .formGroup input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.manage-airports .saveButton {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-airports .saveButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-airports .cancelButton {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-airports .cancelButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #bdbdbd;
+}
+
+@media (max-width: 600px) {
+  .manage-airports .formContainer {
+    max-width: 100%;
+  }
+
+  .manage-airports .userTable th,
+  .manage-airports .userTable td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

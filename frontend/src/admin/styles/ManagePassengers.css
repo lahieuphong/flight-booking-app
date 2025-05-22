@@ -1,0 +1,246 @@
+/* ManagePassengers.css */
+
+/* Thêm lớp chung cho trang này để không ảnh hưởng đến các trang khác */
+.manage-passengers body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.manage-passengers .passengers-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.25);
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-passengers h2 {
+  text-align: center;
+  color: #ff6600;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.manage-passengers .passenger-table,
+.manage-passengers .contact-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.manage-passengers .passenger-table th,
+.manage-passengers .passenger-table td,
+.manage-passengers .contact-info-table th,
+.manage-passengers .contact-info-table td {
+  border: 1px solid #ffd699;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-passengers .passenger-table th,
+.manage-passengers .contact-info-table th {
+  background-color: rgba(255, 204, 128, 0.4);
+  font-weight: 600;
+}
+
+.manage-passengers .passenger-table tr:hover,
+.manage-passengers .contact-info-table tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+
+/* CSS cho nút Chi tiết/Ẩn */
+.passengers-section .passenger-table button {
+  padding: 6px 14px;
+  font-weight: bold;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Bo góc nhẹ cho nút */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 14px; /* Cỡ chữ cho dễ đọc */
+}
+
+.passengers-section .passenger-table button:hover {
+  background-color: #ffb74d; /* Màu thay đổi khi hover */
+  transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
+}
+
+.passengers-section .passenger-table button:focus {
+  outline: none; /* Loại bỏ outline khi nhấn */
+}
+
+/* Khi hàng được mở rộng, thay đổi màu nút */
+.passengers-section .passenger-table button.active {
+  background-color: #ff5722; /* Màu nền khi nút được nhấn (Ẩn) */
+}
+
+.passengers-section .passenger-table button.active:hover {
+  background-color: #ff7043; /* Màu khi hover và nút được nhấn */
+}
+
+/* Màu chữ */
+.passengers-section .passenger-table button {
+  color: #fff;
+}
+
+
+/* General Section Styles */
+.manage-passengers .contact-info-section {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+  padding: 20px;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container for the contact info table */
+.manage-passengers .contact-info-table-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.manage-passengers .contact-info-section h2, .manage-passengers .contact-info-section h3 {
+  color: #ff6600;
+  text-align: center;
+}
+
+/* Table styles */
+.manage-passengers .contact-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.manage-passengers .contact-info-table th, .manage-passengers .contact-info-table td {
+  border: 1px solid #ffd699;
+  padding: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.manage-passengers .contact-info-table th {
+  background-color: rgba(255, 204, 128, 0.3);
+  color: #333;
+}
+
+.manage-passengers .contact-info-table tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+/* Button Styles */
+.manage-passengers .contact-info-section button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-passengers .contact-info-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.manage-passengers .contact-info-section .add-new-button {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: #fff;
+}
+
+.manage-passengers .contact-info-section .edit-button {
+  background: linear-gradient(45deg, #ffa07a, #ff7043);
+  color: #fff;
+}
+
+.manage-passengers .contact-info-section .delete-button {
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+}
+
+.manage-passengers .contact-info-section .save-button {
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  margin-right: 10px;
+}
+
+.manage-passengers .contact-info-section .cancel-button {
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+}
+
+/* Form container styles */
+.manage-passengers .contact-info-section .form-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Form Group */
+.manage-passengers .contact-info-section .form-group {
+  margin-bottom: 15px;
+}
+
+.manage-passengers .contact-info-section .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #cc5200;
+}
+
+.manage-passengers .contact-info-section .form-group input,
+.manage-passengers .contact-info-section .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  background-color: #fff;
+  color: #333;
+}
+
+.manage-passengers .contact-info-section .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Button Group for actions (Add, Edit, Delete) */
+.manage-passengers .contact-info-section .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.manage-passengers .contact-info-section .button-group button {
+  padding: 10px 15px;
+  font-size: 14px;
+}

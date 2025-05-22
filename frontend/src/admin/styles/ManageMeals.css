@@ -1,0 +1,206 @@
+/* ManageMeals.css */
+
+body {
+  background: linear-gradient(135deg, #fffaf0, #fff4e6, #ffe8cc);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  animation: backgroundShift 15s ease infinite;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  /* border-radius: 0; */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+  color: #2c2c2c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2, h3 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ffa94d;
+  /* border-radius: 0; */
+  background-color: #fffdf8;
+  color: #333;
+  font-size: 1rem;
+}
+
+.tableSection {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mealTableWrapper {
+  flex: 1 1 48%;
+  background: rgba(255, 255, 255, 0.95);
+  /* border-radius: 0; */
+  box-shadow: 0 0 10px rgba(255, 183, 77, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+}
+
+.mealTableWrapper h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.mealTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.mealTable th,
+.mealTable td {
+  border: 1px solid #ffd699;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  /* border-radius: 0; */
+}
+
+.mealTable th {
+  background-color: rgba(255, 204, 128, 0.3);
+  font-weight: 600;
+}
+
+.mealTable tr:hover {
+  background-color: rgba(255, 200, 120, 0.2);
+}
+
+.actionButton {
+  margin: 2px;
+  padding: 6px 10px;
+  border: none;
+  /* border-radius: 0; */
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.actionButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #ffb74d;
+}
+
+.deleteButton {
+  background: linear-gradient(45deg, #f44336, #e53935);
+}
+
+.formContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 243, 224, 0.5);
+  border: 1px solid #ffcc99;
+  /* border-radius: 0; */
+  animation: fadeIn 0.5s ease;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #cc5200;
+  font-weight: 600;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ffa726;
+  /* border-radius: 0; */
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+}
+
+.saveButton {
+  padding: 10px 20px;
+  border: none;
+  /* border-radius: 0; */
+  background: linear-gradient(45deg, #ffcc80, #ffb74d);
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.saveButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffb74d;
+}
+
+.cancelButton {
+  padding: 10px 20px;
+  border: none;
+  /* border-radius: 0; */
+  background: linear-gradient(45deg, #d7ccc8, #e0dcd8);
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cancelButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #bdbdbd;
+}
+
+@media (max-width: 768px) {
+  .tableSection {
+    flex-direction: column;
+  }
+  
+  .mealTableWrapper {
+    flex: 1 1 100%;
+  }
+  
+  .formContainer {
+    max-width: 100%;
+  }
+  
+  .mealTable th,
+  .mealTable td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
