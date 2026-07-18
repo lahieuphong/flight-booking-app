@@ -1,10 +1,13 @@
 const mysql = require('mysql2/promise');
 
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'flight_booking'
+    host: process.env.DB_HOST || 'localhost',
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || 'flight_booking',
+    password: process.env.DB_PASSWORD || 'flight_booking',
+    database: process.env.DB_NAME || 'flight_booking',
+    waitForConnections: true,
+    connectionLimit: 10
 });
 
 (async () => {
